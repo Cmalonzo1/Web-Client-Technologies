@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    Do question 1A or 1B.
+
+1A. Make a set of buttons that demonstrate arrays!
+
+a. One of them should use a for loop to iterate through the array from element 0 to the last element.
+b. One should use the forEach() loop to iterate through the array.
+c. One should demonstrate push().
+d. One should demonstrate pop().
+e. One should demonstrate shift().
+f. One should demonstrate unshift().
+g. One should demonstrate a 2D array.
+h. One should demonstrate a 3D array.
+i. One should demonstrate the length attribute of an array.
+j. One should show how the typeof of an array is "object".
+If you saved a program with buttons demonstrating things about JavaScript from a previous HW, why not combine them with this HW to build a more comprehensive page of buttons showing how JavaScript works! In either case, save this HW so you can add the buttons to a future HW. By the end of the course you can have a page with lots of buttons showing a kind of encyclopedia of JavaScript.
+1B. Make, or improve, a simple game in Javascript. It should contain array(s) and object(s). You can build on a game handed in for a previous HW. If you do that, be sure to make it very clear in embedded comments what lines of code are new or changed for this assignment.
+
+2. What are the attribute names and attribute values of the object predefined in a web page called document? Use a for/in loop.
+
+
+   HINT: The following script,
+<script>
+alert(document);
+</script>
+displays the output
+[object HTMLDocument]
+indicating that document is a predefined object. It is predefined by the web page that the code is embedded in. Since it is an object, it has parts, and those parts can be stepped through using a for/in loop.
+3. Call document.getElementById("demo") to get a paragraph (a <p>) object. Store it in a variable called x or whatever you want. Use a "for in" loop to list out its attributes (components) and their values. For example, one of its attributes is named "innerHTML," which you know of, but there are a bunch of others too.
+
+4. Optional (you don't have to do this one). Do the following object step-by-step exercise. Do as many steps as you can.
+
+a) In a sandbox, declare an object myObj with an attribute (property, local variable, member, member variable) called name. Access the value of name using the syntax myObj.name. Also access it using the syntax myObj["name"]. The two attribute references are interchangeable and so should obtain the same value.
+
+b) Declare a variable x and give it the string value "name". Change your access to myObj["name"] to myObj[x]. The two references are to the same thing and thus are interchangeable and so should obtain the same value.
+
+c) Try to access myObj.x. It doesn't work. Why?
+
+d) Add a new attribute (property, local variable, member, member variable) to the object, and call this new attribute x.
+
+e) Show that myObj[x] provides a different value than myObj.x. Why?
+
+f) Add a new attribute to the object called myFunc. For its value, assign to it, not a number like 3, but a function definition, like function(){return "Hi!";}. This attribute is often called a "method," a term referring to a function that is in an object.
+
+g) Print the value of myFunc. It should be the function definition.
+
+h) Print the value of myFunc(). It should be whatever value is returned when myFunc() runs.
+
+i) Set x to the string value "myFunc" as in: x="myFunc";
+
+j) Run myObj[x](). It should do exactly the same as myObj.myFunc().
+
+k) Add 2 or more attributes to myObj. To do this just assign a value to the new attribute and it will be created and will hold the new value. For example, myObj.newAttribute=5; will give myObj a new attribute called newAttribute and assign it the value 5.
+
+l) Use a for/in loop to go through myObj and print out each attribute and its value. An example of a for/in loop is in: https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_for_in.
+
+j) What happens when you try to loop through the object's parts using the dot notation, as used in myObj.whatever? Why?
+
+k) Why is the square bracket notation, as in myObj[x], more powerful than the dot notation, as used in myObj.whatever?
+</body>
+</html>
