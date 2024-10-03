@@ -3,67 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css"/>
-    <title>Document</title>
+    <link rel="stylesheet" href="assets-copyable/css/style.css"/>
+    <title>Assignment 6</title>
 </head>
 <body>
-    Do question 1A or 1B.
 
-1A. Make a set of buttons that demonstrate arrays!
+    <h1>Assignment 6</h1>
+    <h2>Carson Alonzo | Web Client Technologies</h2>
 
-a. One of them should use a for loop to iterate through the array from element 0 to the last element.
-b. One should use the forEach() loop to iterate through the array.
-c. One should demonstrate push().
-d. One should demonstrate pop().
-e. One should demonstrate shift().
-f. One should demonstrate unshift().
-g. One should demonstrate a 2D array.
-h. One should demonstrate a 3D array.
-i. One should demonstrate the length attribute of an array.
-j. One should show how the typeof of an array is "object".
+    <h3>1A. Make a set of buttons that demonstrate arrays!</h3>
+    <ol type="a">
+        <li>
+            <p>One of them should use a for loop to iterate through the array from element 0 to the last element.</p>
+            <button onclick = "iterateThroughArray();">Separates an array of random numbers by even and odd</button>
+            <p id="b1"></p>
+            <script>
+                function iterateThroughArray(){
+                    let doc = document.getElementById("b1");
+                    let array = [];
+
+                    for (let i = 0; i < 10; i++){
+                        let randNum = Math.round(Math.random() * 100);
+                        array.push(randNum);
+                    }
+                    
+                    let evenArray = [];
+                    let oddArray = [];
+
+                    for (let i = 0; i < array.length; i++){
+                        if (array[i] % 2 == 0){
+                            evenArray.push(array[i]);
+                        }
+                        else{
+                            oddArray.push(array[i]);
+                    };
+                };
+                doc.innerHTML = "Is Even: " + evenArray + "<br> is Odd: " + oddArray;
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should use the forEach() loop to iterate through the array.</p>
+            <button onclick = "document.getElementById('b2').innerHTML = demonstrateForEach();">Adds 1 to each item in the array</button>
+            <p id="b2"></p>
+            <script>
+                function demonstrateForEach(){
+                    let array = [1, 2, 3, 4, 5];
+
+                    array.forEach(function(value, index){
+                        array[index] = value + 1; // Modify array elements directly
+                    });
+
+                    return array.join(", "); // Return the updated array as a string
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should demonstrate push().</p>
+            <button onclick="document.getElementById('b3').innerHTML = pushArray()">Pushes "Fries" onto an array</button>
+            <p id="b3"></p>
+            <script>
+                function pushArray(){
+                    let array = ["Hamburger", "Hamburger"];
+                    let pushedArray = ["Hamburger", "Hamburger"];
+                    pushedArray.push("Fries");
+                    return "array: " + array + "<br> pushed array: " + pushedArray;
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should demonstrate pop().</p>
+            <button onclick="document.getElementById('b4').innerHTML = popArray()">Pops and returns "Orchid"</button>
+            <p id="b4"></p>
+            <script>
+                function popArray(){
+                    let array = ["Orchid", " Hamburger Bun"];
+                    let poppedArray = ["Orchid", " Hamburger Bun"];
+                    poppedArray.pop();
+                    return "array: " + array + "<br> what was popped from the array: " + poppedArray;
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should demonstrate shift().</p>
+            <button onclick="document.getElementById('b5').innerHTML = shiftItem()">Demonstrates shift()</button>
+            <p id="b5"></p>
+            <script>
+                function shiftItem(){
+                    let array = [1,2,3,4,5];
+                    return "Unshifted: " + array + "<br> Shifted Item: " + array.shift('2') + "<br> Shifted: " + array;
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should demonstrate unshift().</p>
+            <button onclick="document.getElementById('b6').innerHTML = unshiftItem()">Demonstrates unshift();</button>
+            <p id="b6"></p>
+            <script>
+                function unshiftItem(){
+                    let array = [1,2,3,4,5];
+                    let array2 = [1,2,3,4,5];
+                    array2.unshift("Potato");
+                    return "Original Array: " + array + "<br> Unshifted Array: " + array2;
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should demonstrate a 2D array.</p>
+            <button onclick="document.getElementById('b7').innerHTML = demonstrate2DArray()">Swaps all items inside 2D array with 5</button>
+            <p id="b7"></p>
+            <script>
+                function demonstrate2DArray(){
+
+                    let array = 
+                [
+                    [1,2,7,14], 
+                    [5,2,3,9]
+                ];
+
+                for (let i = 0; i < array.length; i++){
+                    for (let j = 0; j < array[i].length; j++){
+                        array[i][j] = 5;
+                    }
+                }
+                return array;
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should demonstrate a 3D array.</p>
+            <button onclick="document.getElementById('b8').innerHTML=demonstrate3DArray()">Returns the amount of times 9 appears inside a 3D array</button>
+            <p id="b8"></p>
+            <script>
+                function demonstrate3DArray() {
+                    let array = [
+                        [
+                            [1, 2, 7, 14], 
+                            [5, 2, 3, 9],
+                            [9, 2, 3, 9]
+                        ],
+                        [
+                            [9, 5, 6, 9],
+                            [8, 7, 2, 9],
+                            [0, 9, 9, 1]
+                        ]
+                    ];
+
+                    let numCount = 0;
+
+                    for (let i = 0; i < array.length; i++) {
+                        for (let j = 0; j < array[i].length; j++) {
+                            for (let k = 0; k < array[i][j].length; k++) {
+                                if (array[i][j][k] == 9) {
+                                    numCount++;
+                                }
+                            }
+                        }
+                    }
+                    return numCount; 
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should demonstrate the length attribute of an array.</p>
+            <button onclick="document.getElementById('b9').innerHTML = displayArrayLength()">Prints the length of an array of 5 numbers</button>
+            <p id="b9"></p>
+            <script>
+                function displayArrayLength(){
+                    let array = [1,2,3,4,5];
+                    return "array: " + array + "<br> array length: " + array.length;
+                }
+            </script>
+        </li>
+        <li>
+            <p>One should show how the typeof of an array is "object".</p>
+            <button onclick="showType()">Prints out the array's type</button>
+            <p id="b10"></p>
+            <script>
+                function showType(){
+                    let array = [1,2,3,4];
+                    document.getElementById("b10").innerHTML = typeof(array);
+                }
+            </script>
+        </li>
+    </ol>
+
 If you saved a program with buttons demonstrating things about JavaScript from a previous HW, why not combine them with this HW to build a more comprehensive page of buttons showing how JavaScript works! In either case, save this HW so you can add the buttons to a future HW. By the end of the course you can have a page with lots of buttons showing a kind of encyclopedia of JavaScript.
-1B. Make, or improve, a simple game in Javascript. It should contain array(s) and object(s). You can build on a game handed in for a previous HW. If you do that, be sure to make it very clear in embedded comments what lines of code are new or changed for this assignment.
 
-2. What are the attribute names and attribute values of the object predefined in a web page called document? Use a for/in loop.
+<p style="color: red;">I will create a separate page and provide a link to it on each assignment</p>
 
+<h3>2. What are the attribute names and attribute values of the object predefined in a web page called document? Use a for/in loop.</h3>
+    <button onclick="displayDocumentAttributes()">Print Document Attributes</button>
+    <p id="b11"></p>
 
-   HINT: The following script,
+    <script>
+        function displayDocumentAttributes() {
+            let output = document.getElementById("b11");
+            let attributes = "";
+
+            for (let attribute in document) {
+                if (document.hasOwnProperty(attribute)) {
+                    attributes += `${attribute}: ${document[attribute]}<br>`;
+                }
+            }
+            output.innerHTML = attributes;
+        }
+    </script>
+   
+ 
+
+<p id="demo">3. Call document.getElementById("demo") to get a paragraph (a <p>) object. Store it in a variable called x or whatever you want. Use a "for in" loop to list out its attributes (components) and their values. For example, one of its attributes is named "innerHTML," which you know of, but there are a bunch of others too.</p>
+<button onclick="listParagraphAttributes()">List Attributes</button>
+<p id="b12"></p>
+
 <script>
-alert(document);
+    function listParagraphAttributes() {
+        let x = document.getElementById("demo");
+        let attributes = "";
+
+        for (let attribute in x) {
+            if (x.hasOwnProperty(attribute)) {
+                attributes += `${attribute}: ${x[attribute]}<br>`;
+            }
+        }
+        document.getElementById("output").innerHTML = attributes;
+    }
 </script>
-displays the output
-[object HTMLDocument]
-indicating that document is a predefined object. It is predefined by the web page that the code is embedded in. Since it is an object, it has parts, and those parts can be stepped through using a for/in loop.
-3. Call document.getElementById("demo") to get a paragraph (a <p>) object. Store it in a variable called x or whatever you want. Use a "for in" loop to list out its attributes (components) and their values. For example, one of its attributes is named "innerHTML," which you know of, but there are a bunch of others too.
-
-4. Optional (you don't have to do this one). Do the following object step-by-step exercise. Do as many steps as you can.
-
-a) In a sandbox, declare an object myObj with an attribute (property, local variable, member, member variable) called name. Access the value of name using the syntax myObj.name. Also access it using the syntax myObj["name"]. The two attribute references are interchangeable and so should obtain the same value.
-
-b) Declare a variable x and give it the string value "name". Change your access to myObj["name"] to myObj[x]. The two references are to the same thing and thus are interchangeable and so should obtain the same value.
-
-c) Try to access myObj.x. It doesn't work. Why?
-
-d) Add a new attribute (property, local variable, member, member variable) to the object, and call this new attribute x.
-
-e) Show that myObj[x] provides a different value than myObj.x. Why?
-
-f) Add a new attribute to the object called myFunc. For its value, assign to it, not a number like 3, but a function definition, like function(){return "Hi!";}. This attribute is often called a "method," a term referring to a function that is in an object.
-
-g) Print the value of myFunc. It should be the function definition.
-
-h) Print the value of myFunc(). It should be whatever value is returned when myFunc() runs.
-
-i) Set x to the string value "myFunc" as in: x="myFunc";
-
-j) Run myObj[x](). It should do exactly the same as myObj.myFunc().
-
-k) Add 2 or more attributes to myObj. To do this just assign a value to the new attribute and it will be created and will hold the new value. For example, myObj.newAttribute=5; will give myObj a new attribute called newAttribute and assign it the value 5.
-
-l) Use a for/in loop to go through myObj and print out each attribute and its value. An example of a for/in loop is in: https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_for_in.
-
-j) What happens when you try to loop through the object's parts using the dot notation, as used in myObj.whatever? Why?
-
-k) Why is the square bracket notation, as in myObj[x], more powerful than the dot notation, as used in myObj.whatever?
+<footer>
+    <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
+</footer>
 </body>
 </html>
