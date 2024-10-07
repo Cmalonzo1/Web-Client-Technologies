@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets-copyable/css/style.css"/>
+    <title>Document</title>
+
+    <!--Prettier Library to visualize code-->
+    <script src="https://unpkg.com/prettier@3.3.3/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@3.3.3/plugins/graphql.js"></script>
+</head>
+<body>
+    <h1>Assignment </h1>
+    <h2>Carson Alonzo | Web Client Applications</h2>
+
+    <ol>
+      <li><h3>Consider the JavaScript code at https://dberleant.github.io/IFSC3300/parenthesisChecker.html. Before each line, put a comment explaining the line. Hand in a copy of the web page containing the newly commented code.</h3>
+         <pre><code>
+            <div class="colored">Sets two variables: an array var called parenStack and a string var called expression.</div>
+            let parenStack = [];
+            let expression = "Expression has not yet been set.";   
+            
+            function check(){
+            <div class="colored">Prompts the user to type an arithmetic expression and splits it into an array of chars</div>
+               expression = prompt("type in an arithmetic expression!"); 
+               document.getElementById('demo').innerHTML 
+                  = "You typed: "+expression+"";
+               expression = expression.split("");
+               document.getElementById('demo').innerHTML 
+                  += "Converted to an array of chars: "+expression+"";
+            <div class="colored">Checks for and confirms the existence of parentheses inside the array of chars, pushing each parenthese into the parenStack array. Has conditional checks for too little or no parentheses</div>
+               for (index = 0 ; index < expression.length ; index++){
+                   if (expression[index]=== "(" ){
+                      document.getElementById("demo").innerHTML += "Pushing a '('"+"";
+                      parenStack.push( "(" );
+                   }
+                   else if (expression[index]=== ")" ){
+                      if (parenStack.pop()===undefined){
+                         document.getElementById('demo').innerHTML 
+                            += "No ')' to pop: Unbalanced!";
+                      }
+                      else {document.getElementById("demo").innerHTML += "Popping a ')'"+"";
+                      }
+                   }
+               }
+               if (parenStack[0]=== "(" ){
+                  document.getElementById('demo').innerHTML 
+                     += "One or more ')' needed--&nbsp;&nbsp;&nbsp;"
+                        + parenStack
+                        + "&nbsp;&nbsp;&nbsp;--unbalanced!!!";
+               }
+               else {document.getElementById('demo').innerHTML += "Finished."}
+            } 
+        </code></pre>     
+      </li>
+
+    
+
+2. Do either A or B, but not both.
+
+A.
+(i) Make a set of buttons that demonstrate strings. You can combine these new buttons with the buttons of the previous HW, putting the new buttons so they display above the old ones (for visibility) and building a button based JavaScriptopedia watchamacallit. Or you can start a new page of buttons.
+
+(ii) Add more buttons demonstrating "100"/"10", "100"+"10", NaN, Infinity, and hexadecimal numbers.
+    </ol>
+
+    <footer>
+        <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
+    </footer>
+</body>
+</html>
