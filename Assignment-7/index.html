@@ -57,14 +57,166 @@
 
     
 
-2. Do either A or B, but not both.
+   <li><h3>Do either A or B, but not both.</h3>
+      <ol type="a">
+         <li>
+            <h4>Make a set of buttons that demonstrate strings. You can combine these new buttons with the buttons of the previous HW, putting the new buttons so they display above the old ones (for visibility) and building a button based JavaScriptopedia watchamacallit. Or you can start a new page of buttons.</h4>
+            <ul>
+               <li>
+                  <button onclick="document.getElementById('b1').innerHTML = returnLength()">Returns length of "pneumonoultramicroscopicsilicovolcanoconiosis"</button>
+                  <p id="b1"></p>
+                  <script>
+                     function returnLength(){
+                        let str = "pneumonoultramicroscopicsilicovolcanoconiosis";
+                        return "The length of this word is: " + str.length + " characters long";
+                     }
+                  </script>
+                  <details>
+                     <summary>Source code:</summary>
+                     <p>
+                        <pre><code>
+                           function returnLength(){
+                              let str = "pneumonoultramicroscopicsilicovolcanoconiosis";
+                              return "The length of this word is: " + str.length + " characters long";
+                           }                 
+                        </code></pre>
+                     </p>
+                  </details>
+               </li>
+               <li>
+                  <button onclick="document.getElementById('b2').innerHTML = convertToUppercase()">Converts all lowercase letters in a string to UPPERCASE</button>
+                  <p id="b2"></p>
+                  <script>
+                     function convertToUppercase(){
+                        let str = "apple";
+                        return "Original String: " + str + "<br> str.toUpperCase: " + str.toUpperCase();
+                     }
+                  </script>
+                  <details>
+                     <summary>Source code:</summary>
+                     <pre><code>
+                        function convertToUppercase(){
+                        let str = "apple";
+                        return "Original String: " + str + "<br> str.toUpperCase: " + str.toUpperCase();
+                        }
+                     </code></pre>
+                  </details>
+               </li>
+               <li>
+                  <button onclick="document.getElementById('b3').innerHTML = convertToLowercase()">Converts all UPPERCASE letters in a string to lowercase</button>
+                  <p id="b3"></p>
+                  <script>
+                     function convertToLowercase(){
+                        let str = "APPLE";
+                        return "Original String: " + str + "<br> str.toLowerCase: " + str.toLowerCase();
+                     }
+                  </script>
+                  <details>
+                     <summary>Source code:</summary>
+                     <pre><code>
+                        function convertToLowercase(){
+                        let str = "APPLE";
+                        return "Original String: " + str + " str.toUpperCase: " + str.toLowerCase();
+                        }
+                     </code></pre>
+                  </details>
+               </li>
+               <li>
+                  <button onclick="document.getElementById('b4').innerHTML = splitString()">Splits a string into chars</button>
+                  <p id="b4"></p>
+                  <script>
+                     function splitString(){
+                        let str = "Super Splendid"
+                        let str2 = "Super Splendid"
+                        return "Split string: " + str.split('') + "<br> Using .split() to remove 'S': " + str2.split('S');
+                     }
+                  </script>
+                  <details>
+                     <summary>Source code:</summary>
+                     <pre><code>
+                        function splitString(){
+                           let str = "Super Splendid"
+                           let str2 = "Super Splendid"
+                           
+                           return "Split string: " + str.split('') + " Using .split() to remove 'S': " + str2.split('S');
+                        }
+                     </code></pre>
+                  </details>
+               </li>
+               <li>
+                  <button onclick = "document.getElementById('b5').innerHTML=replacePeter()">Replaces Each instance of "Peter" with "David"</button>
+                  <p id="b5">Peter Piper picked a peck of pickled peppers.
+                     A peck of pickled peppers Peter Piper picked.
+                     If Peter Piper picked a peck of pickled peppers,
+                     Where’s the peck of pickled peppers Peter Piper picked?</p>
+                  <script>
+                     function replacePeter(){
+                        let paragraph = document.getElementById('b5').innerHTML;
+                        return paragraph.replace("Peter", "David");
+                     }
+                  </script>
+                  <details>
+                     <summary>Source code:</summary>
+                     <pre><code>
+                        function replacePeter(){
+                           let paragraph = document.getElementById('b5').innerHTML;
+                           return paragraph.replace("Peter", "David");
+                        }
+                     </code></pre>
+                  </details>
+               </li>
+            </ul>
+            
+         </li>
+         <li>
+            <h4>Add more buttons demonstrating:</h4>
+            <ul>
+               <li>
+                  
+                  <button onclick="document.getElementById('b7').innerHTML=divide()">"100"/"10"</button>
+                  <p id="b7"></p>
+               </li>
+               <li>
+                  
+                  <button onclick="document.getElementById('b8').innerHTML=add()">"100"+"10"</button>
+                  <p id="b8"></p>
+               </li>
+               <li>
+                  
+                  <button onclick="document.getElementById('b9').innerHTML=nan()">Demonstrate NaN</button>
+                  <p id="b9"></p>
+               </li>
+               <li>
+                  <button onclick="document.getElementById('b10').innerHTML=infinity()">Demonstrate Infinity</button>
+                  <p id="b10"></p>
+               </li>
+               <li>
+                  <button onclick="document.getElementById('b11').innerHTML=hexadecimal()">Demonstrate Hexadecimal Numbers</button>
+                  <p id="b11"></p>
+               </li>
+               <script>
+                  function divide(){
+                     return "'100'/'10' = " + ("100"/"10");
+                  }
 
-A.
-(i) Make a set of buttons that demonstrate strings. You can combine these new buttons with the buttons of the previous HW, putting the new buttons so they display above the old ones (for visibility) and building a button based JavaScriptopedia watchamacallit. Or you can start a new page of buttons.
+                  function add(){
+                     return "100" + "10";
+                  }
 
-(ii) Add more buttons demonstrating "100"/"10", "100"+"10", NaN, Infinity, and hexadecimal numbers.
-    </ol>
-
+                  function nan(){
+                     return NaN;
+                  }
+                  function infinity(){
+                     return 1/0;
+                  }
+                  function hexadecimal(){
+                     return 3E8;
+                  }
+               </script>
+            </ul>
+         </li>
+      </ol>
+   </li>
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
     </footer>
