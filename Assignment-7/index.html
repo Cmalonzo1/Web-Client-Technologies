@@ -177,12 +177,10 @@
                   <p id="b7"></p>
                </li>
                <li>
-                  
                   <button onclick="document.getElementById('b8').innerHTML=add()">"100"+"10"</button>
                   <p id="b8"></p>
                </li>
                <li>
-                  
                   <button onclick="document.getElementById('b9').innerHTML=nan()">Demonstrate NaN</button>
                   <p id="b9"></p>
                </li>
@@ -194,9 +192,33 @@
                   <button onclick="document.getElementById('b11').innerHTML=hexadecimal()">Demonstrate Hexadecimal Numbers</button>
                   <p id="b11"></p>
                </li>
+               <details>
+                  <summary>Source code:</summary>
+                  <pre><code>
+
+                     function divide(){
+                        return "100"/"10";
+                     }
+   
+                     function add(){
+                        return "100" + "10";
+                     }
+   
+                     function nan(){
+                        return NaN;
+                     }
+                     function infinity(){
+                        return 1/0;
+                     }
+                     function hexadecimal(){
+                        return 3E8;
+                     }
+   
+                  </code></pre>
+               </details>
                <script>
                   function divide(){
-                     return "'100'/'10' = " + ("100"/"10");
+                     return "100"/"10";
                   }
 
                   function add(){
