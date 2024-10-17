@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets-copyable/css/style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Assignment 8</h1>
+    <h2>Carson Alonzo | Web Client Applications</h2>
+
+    <h3><u>Review</u></h3> 
+    
+    <ol>
+        <li>Demo the split() method for strings.</li>
+        <button onclick="document.getElementById('b1').innerHTML=split()">Demonstrates split() method</button>
+        <p id="b1"></p>
+        <script>
+            function split(){
+                str = "Fortuitus|Abled|Gratitude|Especially";
+                return "Normal String: " + str + "<br>str.split(): " + str.split("|");
+            }
+        </script>
+        <details>
+            <summary>Source Code:</summary>
+            <pre><code>
+                function split(){
+                    str = "Fortuitus|Abled|Gratitude|Especially";
+                    return "Normal String: " +  str + "<br>str.split(): " + str.split("|");
+                }
+            </code></pre>
+        </details>
+      
+        <li><h3>"Numbers" lesson</h3></li>
+        <ol>
+            <li>Check if 3===3.0. Why?</li>
+            <p class="answer">Javascript is a loosely typed language, so all number types (floats, ints, doubles) are evaluated the same. So, in Javascript, 3.0  is the same as 3.</p>
+      
+            <li>Find the number of zeros such that 3===3.000…01. Why can this happen?</li>
+            <p class="answer">JS evaluates 3 === 3.0000000000000001 as true because it considers the difference in these two numbers are indistinguishable</p>
+            
+        <li>If var x=123e15, and var y=123e-15, does x===x+y? Why?</li>
+        <p class="answer">This evaluates to true. This coorelates to the previous question's answer. Javascript can only be so precise.</p>
+            
+        <li>What is typeof NaN? Comment on its (il)logicality.</li>
+        <p class="answer">It's evaluated as a number, which doesn't make sense considering NaN represents undefined or unrepresentable numbers.</p>
+        </ol>
+        
+      
+        <li><h3>"Number Methods" lesson</h3></li>
+        <ol>
+            <li>What is the hexadecimal number fF (which can be written in JavaScript as 0xfF) in base 10?</li>
+            <p id="q1" class="answer"></p>
+            <script>
+                document.getElementById('q1').innerHTML = 0xfF;
+            </script>
+      
+        <li>Write all the numbers from 0 to 20 in hexadecimal form. If not sure, you can always use a for loop and (if the index variable is i), print out i.toString(16).</li>
+        
+        <p id="q2" class="answer"></p>
+        <script>
+            let arr = [];
+
+            for (let i = 0; i <= 20; i++){
+                arr.push(i.toString(16));
+            }
+            document.getElementById('q2').innerHTML = arr.join(", ");
+        </script>
+
+        <details>
+            <summary>Source Code:</summary>
+            <pre><code>
+                let arr = [];
+
+                for (let i = 0; i <= 20; i++){
+                    arr.push(i.toString(16));
+                }
+                document.getElementById('q2').innerHTML = arr.join(", ");
+            </code></pre>
+        </details>
+        
+        <li>What is 0xff.toString()? Why?</li>
+        <p class="answer">255. "FF" is 255's hexadecimal number. "0x" is a prefix to tell the compiler the number we're wanting is hexadecimal</p>
+      
+        <li>What is (35).toString(36)? Why?</li>
+        <p class="answer">This converts the number 35 to a string using the base-36 numerical system, which uses numbers 0-9 and letters a-z to represent numbers. </p>
+      
+        <li>What is (35).toString(37)? Why?</li>
+        <p class="answer">An error. Javascript can only convert numbers to base-2 and base-36</p>
+      
+        <li>Give a call to alert() that gives $0.99 + 7% (sales tax, say) of $0.99.</li>
+        <button onclick="alert(.99 + (.99 * 0.07))">Performs this calculation</button>
+        
+        <li>Why does (0.99+0.07*0.99).toFixed(2) give the price if it costs $0.99 + 7% sales tax?</li>
+        <p class="answer">toFixed in this case rounds the answer to the nearest 100ths place</p>
+      
+        <li>What is Number(true)?</li>
+        <p class="answer">The number "true" is 1</p>
+      
+        <li>What is Number(undefined)? Why?</li>
+        <p class="answer">Number(undefined) is NaN as NaN represents an undefinable or unrepresentable number</p>
+      
+        <li>What is parseInt(0xff)? Why?</li>
+        <p class="answer">parseInt(0xff) is 255. parseInt converts strings to numbers. Given that 0xff is a number though, the conversion is unneeded.</p>
+      
+        <li>The Number entity contains useful stuff. What is the value of Number.MAX_VALUE? Is it big?</li>
+        <p class="answer">1.7976931348623157e+308 is an incredibly large number. It's 1.8 followed by 308 zeroes</p>
+      
+        <li>Consider the hexadecimal (base 16) number 9a. In a JavaScript program you would write it as 0x9a. How would you write it in the more familiar base 10? <br><p style="font-size: 25px"><u>Here is how to solve this:</u></p></li>
+      
+        <ul>
+          <li>Recall that a "normal" base 10 number has a ones place, a tens place, a hundreds place, a thousands place, etc. Similarly, a base 16 number has a 16^0's place (16^0=1), a 16^1's place (16^1=16), and so on.</li>
+      
+          <li>So the base 16 number 9a has an "a" in the 1s place and a 9 in the 16s place.</li>
+      
+          <li>It has "a" 1s and 9 16s, so just calculate (a*1)+(9*16).</li>
+      
+          <li>What number is "a"? Well, base 10 numbers are made with 10 numeral symbols (0 1 2 3 4 5 6 7 8 9). Similarly, base 16 numbers are made with 16 numeral symbols (0 1 2 3 4 5 6 7 8 9 a b c d e f). An "e" for example has the value of fifteen. Base 2 numbers are made with 2 numeral symbols (0 1). Base 36 uses 36 symbols (0...9 and a...z).</li>
+      
+          <li>You can check your answer in JavaScript using the toString() method:</li>
+      
+          <pre><code>var num = 128;
+      num.toString(16);</code></pre>
+      
+          <li>This will provide a string for the base 10 number 128 rendered as a base 16 number. So you can see if toString() will convert your answer and give the string "9a". If it does, you got the right answer.</li>
+        </ul>
+      
+        <li>So far, we have looked at calculating a conversion from base 16 numbers into base 10. The same idea applies to converting any base into base 10. What is the base 8 number 7564 in base 10?</li>
+        <p class="answer">3956</p>
+      
+        <li>What is the binary number 11101111 in base 10?</li>
+        <p class="answer">239</p>
+      
+        <li style="font-size: 20px;">Next, consider converting base 10 numbers into base 16 or any other base.</li>
+      
+        <li>Calculate what the base 10 number 1000 is in base 16 (show your work, without using JavaScript). You can check your answer using toString() if you like. Here's how to calculate it:</li>
+        <pre class="answer">
+            Using a base-16 system where 10-16 are a-f respectively
+            1000/16 = 62 remainder 8
+            62/16 = 3 remainder 14 (E in Hexadecimal)
+            3/16 = 0 remainder 3
+            1000 in base-16 is 3E8
+        </pre>
+      
+        <ul>
+          <li>16^3=4096, and there are no 4096s in 1000, so there is no fourth digit in the answer, since what you really need are the three digits for 16^2, 16^1, and 16^0. How many 16^2s are in 1000? 16^2=256, so the question then is how many 256s are in 1000? The answer is 3, with a remainder. So the partial answer is: 3 _ _ . Fill in the 2 blanks.</li>
+      
+          <li>The 3 is the number of 16^2s or 256s in 1000, which leaves 1000-3*256 = 232 unaccounted for.</li>
+      
+          <li>The next digit is for the number of 16^1=16s we need. We can fit 14 of them into 232: 14*16=224, with a remainder of 8 that is not yet accounted for. 14 is written "e" in base 16, so the answer so far is: 3e_ and we have one blank left to fill.</li>
+      
+          <li>The 16^0 or 1s place holds the number of 1s we need. 8 of them are needed to fill up the remainder of 8 that we have to deal with, so the answer is: 3e8.</li>
+
+          <li>num = 1000;
+            num.toString(16);</li>
+            
+              <li>This should give the string "3e8".</li>
+        </ul>
+      
+      
+        <li>What is 2000 in base 16 (hexadecimal)? Calculate it without using JavaScript and show your work.</li>
+        <pre class="answ">
+            2000/16 = 125 remainder 0
+            125/16 = 7 remainder 13 (D in hexadecimal)
+            7/16 = 0 remainder 7
+            So 2000 in hexadecimal is 7D0
+        </pre>
+      
+        <li>Do this the fast way using toString(). What is the base 10 number 128 in base 2?</li>
+        <p id="base2"></p>
+        <script>
+            var num = 128;
+            document.getElementById('base2').innerHTML = num.toString(2);
+        </script>
+      
+        <li>Do this the fast way using toString(). What is the base 10 number 128 in base 36? toString() won't go above 36.</li>
+      
+        <p id="base36"></p>
+        <script>
+            var num = 128;
+            document.getElementById('base36').innerHTML = num.toString(36);
+        </script>
+
+        <li>What is 200,000,000 in hexadecimal? Do it the fast way in JavaScript unless you have a lot of extra time on your hands.</li>
+        <p id="largeNumber"></p>
+        <script>
+            var num = 200000000;
+            document.getElementById('largeNumber').innerHTML = num.toString(36);
+        </script>
+      
+        </ol>
+        <li><h3>The "Random" lesson</h3></li>
+      
+        <ul>
+            <li>Check out https://www.w3schools.com/js/tryit.asp?filename=tryjs_random_function. Explain how it works.</li>
+            <p class="answer">The method gerRndInteger takes two numbers, generates a random number between the min and max value, then rounds the generated number to the nearest whole integer using Math.floor()</p>
+      
+        <li>Give a call to Math.floor() that returns a random integer from 1 to 10, inclusive (inclusive means it could return 1, 10, or any integer in between.</li>
+        <button onclick="document.getElementById('randNumExample').innerHTML=performRandNum()">Demonstrate Math.floor()</button>
+        <p id="randNumExample"></p>
+        <script>
+            function performRandNum(){
+                let num = Math.floor(Math.random() * (10 - 1) + 1);
+                return num;
+            }
+        </script>
+        </ul>
+      </ol>
+ 
+
+    <footer>
+        <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
+    </footer>
+</body>
+</html>
