@@ -1,10 +1,41 @@
 html{
     box-sizing: border-box;
     font-family: 'Arial';
-    background-color: black;
-    color: white;
+    background-color: grey;
+    color: black;
 }
 
 *, *:before, *:after{
     box-sizing: inherit;
 }
+
+ol li{
+    padding-bottom: 20px;
+}
+
+#q3{
+    background-color: #ff6a00;
+    transition: 1s;
+    border-radius: 100px;
+    width: 200px;
+    height: 50px;
+}
+
+#q3:hover{
+    background-color: #895129;
+}
+
+.answer{
+    color: red;
+}
+
+#buttonList{
+    list-style: none;
+}
+
+#randcolor{
+    position: absolute;
+    top: 200px;
+    bottom: 50px;
+}
+

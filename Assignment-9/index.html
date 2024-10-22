@@ -10,18 +10,146 @@
     <h1>Assignment </h1>
     <h2>Carson Alonzo | Web Client Applications</h2>
 
-    1. Recall My favorite button, which is like a button in a previous HW except the background color is different this time and, more importantly, the way the color is specified is different: instead of having background-color:green it has background-color:#FC9630 (check the source code for this page for more details on the button). This uses the RGB (red-green-blue) color specification method. The six hexadecimal digits FC9630 indicate FC for the amount of red, 96 for the amount of green, and 30 for the amount of blue; FC is a lot of red, almost FF which is the maximum 2-digit hexadecimal (specifically, FC=FF-3, or in base 10, 252=255-3). Red and green, if they were in approximately equal amounts, would give yellow. However in this case there is less green (96 out of the maximum possible FF in hexadecimal, which is the same as 150 out of 255 in decimal numbers), which moves the color to between yellow and red, or orange. The amount of blue mixed in, 30 out of FF (hex) = 48 out of 255 (decimal), is so small that it doesn't affect the orange that much. It makes the orange color a little lighter since all colors together combine to make white, so now we have orange with a little white (48 units of blue, combining with 48 units of the 252 units of red, and 48 of the 150 units of green to make a bit of white) mixed in with the orange. 48 out of a possible 255 isn't that much, and if it wasn't mixed in with the orange, 48 alone of the three colors, mixed together, would be a dark gray (that is, between white and black but closer to black, where a pure black is color 000000 and a maximally bright white is FFFFFF).
-Explain why the above button is bright orange.
+    <ol>
+        <li>
+            Recall <button style="background-color: rgb(252, 150, 48); color: blue; font-size: 30pt; height: 60px; --darkreader-inline-bgcolor: #ae5903; --darkreader-inline-color: #337dff;" data-darkreader-inline-bgcolor="" data-darkreader-inline-color="">My favorite button</button>, which is like a button in a previous HW except the background color is different this time and, more importantly, the way the color is specified is different: instead of having background-color:green it has background-color:#FC9630 (check the source code for this page for more details on the button). This uses the RGB (red-green-blue) color specification method. The six hexadecimal digits FC9630 indicate FC for the amount of red, 96 for the amount of green, and 30 for the amount of blue; FC is a lot of red, almost FF which is the maximum 2-digit hexadecimal (specifically, FC=FF-3, or in base 10, 252=255-3). Red and green, if they were in approximately equal amounts, would give yellow. However in this case there is less green (96 out of the maximum possible FF in hexadecimal, which is the same as 150 out of 255 in decimal numbers), which moves the color to between yellow and red, or orange. The amount of blue mixed in, 30 out of FF (hex) = 48 out of 255 (decimal), is so small that it doesn't affect the orange that much. It makes the orange color a little lighter since all colors together combine to make white, so now we have orange with a little white (48 units of blue, combining with 48 units of the 252 units of red, and 48 of the 150 units of green to make a bit of white) mixed in with the orange. 48 out of a possible 255 isn't that much, and if it wasn't mixed in with the orange, 48 alone of the three colors, mixed together, would be a dark gray (that is, between white and black but closer to black, where a pure black is color 000000 and a maximally bright white is FFFFFF).
+        <p>Explain why the above button is bright orange.</p>
+        <p class="answer">This button's background, being #FC9630, uses hexadecimal values to determine its RGB values. Color hex codes are formatted as RRGGBB, and in this example, there is FC (252) Red, 96 (150) Green, and 30 (48) blue.</p>
+        </li>
 
-2. Pick Option A or Option B.
+        <li>Option B: Building on the previous HW's game (or starting a new one if you prefer is still fine), create several modifications that use colors based on the 6-digit, hexadecimal-based, RGB method just described.</li>
 
-Option A: Building on the previous HW's buttons program (at this point, avoid starting a new buttons program), create several buttons that demonstrate colors using the 6-digit, hexadecimal-based, RGB method just described.
+        <button id="colorGenerator" onclick="generateColor();">Generate Random color</button>
+        <div id="randColor" style="width: 50px; height: 50px;"></div>
+        <p id="text"></p>
 
-Option B: Building on the previous HW's game (or starting a new one if you prefer is still fine), create several modifications that use colors based on the 6-digit, hexadecimal-based, RGB method just described.
+        <script>
 
-3. Brown is an interesting color. It is actually dark orange. (I used to think brown was dark yellow, but dark yellow is actually a greenish brown.) Make an orange button. Then change it to be brown. Avoid mixing the button into the middle of your answer to the previous question which would make it harder for the grader to notice it, resulting in possible loss of credit.
 
-4. Demonstrate a bunch of events. Use buttons or a game, or any other way (most of the events work just as well with other HTML elements like <p>, <span>, <h1>...<h6>, etc. as they do with buttons). Explain what you did.
+            
+            //this function should allow the button to change the color of randColor
+            function generateColor(){
+                let colorGenerator = document.getElementById('colorGenerator');
+                let color = document.getElementById('randColor');
+
+                //create the random rgb values
+                let rr = Math.floor(Math.random() * 255);
+                let rg = Math.floor(Math.random() * 255);
+                let rb = Math.floor(Math.random() * 255);
+
+                //convert them into hexadecimals (make sure they are the same)
+                rHex = rr.toString(16).padStart(2, '0');
+                gHex = rg.toString(16).padStart(2, '0');
+                bHex = rb.toString(16).padStart(2, '0');
+
+                //creating arrays for the rgb values and the hexadecimal values
+                rgbValues = [];
+                rgbHexValues = [];
+                
+                rgbValues.push(rr,rg,rb);
+                rgbHexValues.push(rHex, gHex, bHex);
+
+                text.innerHTML = rgbValues;
+                //okay this works fine so I should be able to change the bgc of randColor and the rgb values will reflect the color right
+                return "#" + rgbHexValues.join('');
+            }
+
+            colorGenerator.onclick = function(){
+                randColor.style.backgroundColor = generateColor();
+            }
+            /*randColor.style.backgroundColor = generateColor()*/
+            
+
+        </script>
+
+        <!--Gonna create a game where the user needs to determine the hex code of a color given the rgb values-->
+
+            <!--Option A: Building on the previous HW's buttons program (at this point, avoid starting a new buttons program), create several buttons that demonstrate colors using the 6-digit, hexadecimal-based, RGB method just described.-->
+
+
+
+        <li>Brown is an interesting color. It is actually dark orange. (I used to think brown was dark yellow, but dark yellow is actually a greenish brown.) Make an orange button. Then change it to be brown. Avoid mixing the button into the middle of your answer to the previous question which would make it harder for the grader to notice it, resulting in possible loss of credit.
+            <br>
+            <button id="q3">Button turns from orange to brown</button>
+
+        <details>
+            <summary>CSS Styling for button</summary>
+            <pre><code>
+                #q3{
+                    background-color: #ff6a00;
+                    transition: 1s;
+                    border-radius: 100px;
+                    width: 200px;
+                    height: 50px;
+                }
+                
+                #q3:hover{
+                    background-color: #895129;
+                }
+            </code></pre>
+        </details>
+
+        </li>
+        
+        <li>Demonstrate a bunch of events. Use buttons or a game, or any other way (most of the events work just as well with other HTML elements as they do with buttons). Explain what you did.</li>
+            <ul id="buttonList">
+                <li>
+                    <button style="width: 175px; height: 75px; border-radius: 100px;" id="randomColor">This button randomly changes colors and increments a number when clicked</button>
+                    <script>
+                        let button = document.getElementById('randomColor');
+                        
+                        button.addEventListener('mousedown', function(){
+                            let randRed = Math.floor(Math.random() * 255);
+                            let randGreen = Math.floor(Math.random() * 255);
+                            let randBlue = Math.floor(Math.random() * 255);
+
+                            button.style.backgroundColor = `rgb(${randRed}, ${randGreen}, ${randBlue})`;
+                        });
+
+                        button.addEventListener('mouseup', function(){
+                            button.style.backgroundColor = "white";
+                        });
+                    </script>
+                    <details>
+                        <summary>Source Code:</summary>
+                        <pre><code>
+                            let button = document.getElementById('randomColor');
+                        
+                            button.addEventListener('mousedown', function(){
+                                let randRed = Math.floor(Math.random() * 255);
+                                let randGreen = Math.floor(Math.random() * 255);
+                                let randBlue = Math.floor(Math.random() * 255);
+
+                                button.style.backgroundColor = `rgb(${randRed}, ${randGreen}, ${randBlue})`;
+                        });
+
+                            button.addEventListener('mouseup', function(){
+                                button.style.backgroundColor = "white";
+                        })
+                        </code></pre>
+                    </details>
+                </li>
+                <li>
+                    <button id="detectKeyInputs">Detects key input and puts them inside a paragraph. Click again to remove the text</button>
+                    <p id="textHolder"></p>
+                    <script>
+                        let button2 = document.getElementById('detectKeyInputs');
+                        let textHolder = document.getElementById('textHolder');
+                        let text = "";
+
+                        button.addEventListener('keydown', function(){
+                            console.log("hi");
+                            
+                        })
+
+                    </script>
+                    <details><summary>Source Code:</summary><pre><code></code></pre></details></li>
+                <li><button id=""></button><script></script><details><summary>Source Code:</summary><pre><code></code></pre></details></li>
+                <li><button id=""></button><script></script><details><summary>Source Code:</summary><pre><code></code></pre></details></li>
+                <li><button id=""></button><script></script><details><summary>Source Code:</summary><pre><code></code></pre></details></li>
+                <li><button id=""></button><script></script><details><summary>Source Code:</summary><pre><code></code></pre></details></li>
+            </ul>
+    </ol>
 
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
