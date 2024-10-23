@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets-copyable/css/style.css"/>
+
+    <!--JS SCRIPTS-->
+    <script src=""></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -21,16 +25,14 @@
 
         <button id="colorGenerator" onclick="generateColor();">Generate Random color</button>
         <div id="randColor" style="width: 50px; height: 50px;"></div>
-        <p id="text"></p>
+        <p id="rgb"></p>
+        <p id="example"></p>
 
         <script>
 
-
-            
-            //this function should allow the button to change the color of randColor
-            function generateColor(){
                 let colorGenerator = document.getElementById('colorGenerator');
                 let color = document.getElementById('randColor');
+                let rgb = document.getElementById('rgb');
 
                 //create the random rgb values
                 let rr = Math.floor(Math.random() * 255);
@@ -48,17 +50,17 @@
                 
                 rgbValues.push(rr,rg,rb);
                 rgbHexValues.push(rHex, gHex, bHex);
-
-                text.innerHTML = rgbValues;
+            
+            //this function should allow the button to change the color of randColor
+            function generateColor(){
                 //okay this works fine so I should be able to change the bgc of randColor and the rgb values will reflect the color right
                 return "#" + rgbHexValues.join('');
             }
 
-            colorGenerator.onclick = function(){
+            colorGenerator.addEventListener("click", function(){
                 randColor.style.backgroundColor = generateColor();
-            }
-            /*randColor.style.backgroundColor = generateColor()*/
-            
+                rgb.innerHTML = rgbValues;
+            });
 
         </script>
 
@@ -94,7 +96,7 @@
         <li>Demonstrate a bunch of events. Use buttons or a game, or any other way (most of the events work just as well with other HTML elements as they do with buttons). Explain what you did.</li>
             <ul id="buttonList">
                 <li>
-                    <button style="width: 175px; height: 75px; border-radius: 100px;" id="randomColor">This button randomly changes colors and increments a number when clicked</button>
+                    <button style="width: 175px; height: 75px; border-radius: 100px;" id="randomColor">Demonstrates mousedown; This button randomly changes colors and increments a number when clicked</button>
                     <script>
                         let button = document.getElementById('randomColor');
                         
@@ -130,17 +132,10 @@
                     </details>
                 </li>
                 <li>
-                    <button id="detectKeyInputs">Detects key input and puts them inside a paragraph. Click again to remove the text</button>
+                    <button id="detectKeyInputs"></button>
                     <p id="textHolder"></p>
                     <script>
-                        let button2 = document.getElementById('detectKeyInputs');
-                        let textHolder = document.getElementById('textHolder');
-                        let text = "";
-
-                        button.addEventListener('keydown', function(){
-                            console.log("hi");
-                            
-                        })
+                        
 
                     </script>
                     <details><summary>Source Code:</summary><pre><code></code></pre></details></li>
