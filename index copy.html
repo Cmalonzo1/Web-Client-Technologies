@@ -12,18 +12,74 @@
     <h1>Assignment </h1>
     <h2>Carson Alonzo | Web Client Applications</h2>
 
-    <button id="colorGenerator" onclick="generateColor();">Generate Random color</button>
-        <div id="randColor" style="width: 50px; height: 50px;"></div>
-        <p id="rgb"></p>
-        <p id="feedback"></p>
+    <button id="colorGeneratorButton" onclick="generateColor();" style="margin-bottom: 20px;">Generate Random color</button>
+        <div id="randColor" style="width: 100px; height: 100px; border: 1px solid black;">Where the color goes</div>
+        <p id="rgbValue" style="border: 1px solid black;">This will display the rgb values of the color</p>
+        <p id="feedback" style="border: 1px solid black;">This will tell you if you got it correct</p>
 
-        <form onsubmit="readHex()">
+        <form id="form">
             <label for="input">Input hexadecimal of this color:
                 <input type="text" id="answerField" name="answerField" placeholder="#FFFFFF">
-                <input type="submit" id="submittedAnswer" value="Check">
+                <input type="submit" id="submitButton" value="Check">
             </label>
         </form>
+
+        <script>
+            //HTML IDs
+            let colorGeneratorButton = document.getElementById('colorGeneratorButton');
+            let randColor = document.getElementById('randColor');
+            let rgbValue = document.getElementById('rgbValue');
+            let feedback = document.getElementById('feedback');
+            let answerField = document.getElementById('answerField');
+            let submitButton = document.getElementById('submitButton');
+            let form = document.getElementById('form');
+
+            function generateColor(){
+                //create the random rgb values
+                let rr = Math.floor(Math.random() * 255);
+                    let rg = Math.floor(Math.random() * 255);
+                    let rb = Math.floor(Math.random() * 255);
+
+                    //convert them into hexadecimals (make sure they are the same)
+                    rHex = rr.toString(16).padStart(2, '0');
+                    gHex = rg.toString(16).padStart(2, '0');
+                    bHex = rb.toString(16).padStart(2, '0');
+
+                    //creating arrays for the rgb values and the hexadecimal values
+                    rgbValues = [];
+                    rgbHexValues = [];
+                    
+                    rgbValues.push(rr,rg,rb);
+                    rgbHexValues.push(rHex, gHex, bHex);
+
+                    hexColor = `#${rgbHexValues.join('')}`;
+
+                    console.log(hexColor);
+                    return hexColor; 
+            }
+
+            function createColor(){
+                randColor.style.backgroundColor = generateColor();
+            }
+
+            colorGeneratorButton.addEventListener('click', function(){
+                rgbValue.innerHTML = `RGB(${rgbValues})`;
+                createColor();
+            });
+
+            form.addEventListener('submit', function(event){
+                event.preventDefault();
+                let answer = answerField.value;
+                if (answer.toUpperCase() === hexColor.toUpperCase()){
+                    console.log("Correct");
+                }
+                else{
+                    console.log("Incorrect");
+                }
+            });
+        </script>
         
+        <!--
         <script>
                 //html IDs
                 let colorGenerator = document.getElementById('colorGenerator');
@@ -88,8 +144,10 @@
             }
             
             console.log(userInput);
-
         </script>
+        -->
+
+
 
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>

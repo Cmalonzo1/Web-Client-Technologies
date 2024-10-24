@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="assets-copyable/css/style.css"/>
 
     <!--JS SCRIPTS-->
-    <script src=""></script>
 
     <title>Document</title>
 </head>
@@ -23,126 +22,180 @@
 
         <li>Option B: Building on the previous HW's game (or starting a new one if you prefer is still fine), create several modifications that use colors based on the 6-digit, hexadecimal-based, RGB method just described.</li>
 
-        <button id="colorGenerator" onclick="generateColor();">Generate Random color</button>
-        <div id="randColor" style="width: 50px; height: 50px;"></div>
-        <p id="rgb"></p>
-        <p id="example"></p>
+        <h3>Figure out the hexadecimal of this color given its RGB Values. Press the button to generate a random color</h3>
+
+        <div id="game">
+            <button id="colorGeneratorButton" onclick="generateColor();" style="margin-bottom: 20px;">Generate Random color</button>
+        <div id="randColor" style="width: 100px; height: 100px; border: 1px solid black;">Where the color goes</div>
+        <p id="rgbValue" style="border: 1px solid black;">This will display the rgb values of the color</p>
+        <p id="feedback" style="border: 1px solid black;">This will tell you if you got it correct</p>
+
+        <form id="form">
+            <label for="input">Input hexadecimal of this color:
+                <input type="text" id="answerField" name="answerField" placeholder="#FFFFFF">
+                <input type="submit" id="submitButton" value="Check">
+            </label>
+        </form>
 
         <script>
+            //HTML IDs
+            let colorGeneratorButton = document.getElementById('colorGeneratorButton');
+            let randColor = document.getElementById('randColor');
+            let rgbValue = document.getElementById('rgbValue');
+            let feedback = document.getElementById('feedback');
+            let answerField = document.getElementById('answerField');
+            let submitButton = document.getElementById('submitButton');
+            let form = document.getElementById('form');
 
-                let colorGenerator = document.getElementById('colorGenerator');
-                let color = document.getElementById('randColor');
-                let rgb = document.getElementById('rgb');
-
+            //generates the color
+            function generateColor(){
                 //create the random rgb values
                 let rr = Math.floor(Math.random() * 255);
-                let rg = Math.floor(Math.random() * 255);
-                let rb = Math.floor(Math.random() * 255);
+                    let rg = Math.floor(Math.random() * 255);
+                    let rb = Math.floor(Math.random() * 255);
 
-                //convert them into hexadecimals (make sure they are the same)
-                rHex = rr.toString(16).padStart(2, '0');
-                gHex = rg.toString(16).padStart(2, '0');
-                bHex = rb.toString(16).padStart(2, '0');
+                    //convert them into hexadecimals (make sure they are the same)
+                    rHex = rr.toString(16).padStart(2, '0');
+                    gHex = rg.toString(16).padStart(2, '0');
+                    bHex = rb.toString(16).padStart(2, '0');
 
-                //creating arrays for the rgb values and the hexadecimal values
-                rgbValues = [];
-                rgbHexValues = [];
-                
-                rgbValues.push(rr,rg,rb);
-                rgbHexValues.push(rHex, gHex, bHex);
-            
-            //this function should allow the button to change the color of randColor
-            function generateColor(){
-                //okay this works fine so I should be able to change the bgc of randColor and the rgb values will reflect the color right
-                return "#" + rgbHexValues.join('');
+                    //creating arrays for the rgb values and the hexadecimal values
+                    rgbValues = [];
+                    rgbHexValues = [];
+                    
+                    rgbValues.push(rr,rg,rb);
+                    rgbHexValues.push(rHex, gHex, bHex);
+
+                    hexColor = `#${rgbHexValues.join('')}`;
+
+                    console.log(hexColor);
+                    return hexColor; 
             }
 
-            colorGenerator.addEventListener("click", function(){
+            //Displays the color
+            function createColor(){
                 randColor.style.backgroundColor = generateColor();
-                rgb.innerHTML = rgbValues;
+            }
+
+            //when button is pressed creates the color
+            colorGeneratorButton.addEventListener('click', function(){
+                rgbValue.innerHTML = `RGB(${rgbValues})`;
+                createColor();
             });
 
+            //checks user's answer and starts the game over when user types the correct hex code
+            form.addEventListener('submit', function(event){
+                event.preventDefault();
+                let answer = answerField.value;
+                if (answer.toUpperCase() === hexColor.toUpperCase()){
+                    feedback.innerHTML = "Correct";
+                    generateColor();
+                    createColor();
+                }
+                else{
+                    feedback.innerHTML = "Incorrect";
+                }
+                answerField.value = '';
+            });
         </script>
+        </div>
 
         <!--Gonna create a game where the user needs to determine the hex code of a color given the rgb values-->
-
-            <!--Option A: Building on the previous HW's buttons program (at this point, avoid starting a new buttons program), create several buttons that demonstrate colors using the 6-digit, hexadecimal-based, RGB method just described.-->
-
-
 
         <li>Brown is an interesting color. It is actually dark orange. (I used to think brown was dark yellow, but dark yellow is actually a greenish brown.) Make an orange button. Then change it to be brown. Avoid mixing the button into the middle of your answer to the previous question which would make it harder for the grader to notice it, resulting in possible loss of credit.
             <br>
             <button id="q3">Button turns from orange to brown</button>
-
-        <details>
-            <summary>CSS Styling for button</summary>
-            <pre><code>
-                #q3{
-                    background-color: #ff6a00;
-                    transition: 1s;
-                    border-radius: 100px;
-                    width: 200px;
-                    height: 50px;
-                }
-                
-                #q3:hover{
-                    background-color: #895129;
-                }
-            </code></pre>
-        </details>
-
         </li>
-        
         <li>Demonstrate a bunch of events. Use buttons or a game, or any other way (most of the events work just as well with other HTML elements as they do with buttons). Explain what you did.</li>
             <ul id="buttonList">
-                <li>
-                    <button style="width: 175px; height: 75px; border-radius: 100px;" id="randomColor">Demonstrates mousedown; This button randomly changes colors and increments a number when clicked</button>
+                <li><button style="width: 175px; height: 75px; border-radius: 100px;" id="button">Prints "button clicked" when clicked</button>
                     <script>
-                        let button = document.getElementById('randomColor');
+                        let button = document.getElementById('button');
                         
-                        button.addEventListener('mousedown', function(){
-                            let randRed = Math.floor(Math.random() * 255);
-                            let randGreen = Math.floor(Math.random() * 255);
-                            let randBlue = Math.floor(Math.random() * 255);
-
-                            button.style.backgroundColor = `rgb(${randRed}, ${randGreen}, ${randBlue})`;
-                        });
-
-                        button.addEventListener('mouseup', function(){
-                            button.style.backgroundColor = "white";
+                        button.addEventListener('click', function(){
+                            console.log("button clicked");
                         });
                     </script>
                     <details>
                         <summary>Source Code:</summary>
                         <pre><code>
-                            let button = document.getElementById('randomColor');
+                            let button = document.getElementById('button');
                         
-                            button.addEventListener('mousedown', function(){
-                                let randRed = Math.floor(Math.random() * 255);
-                                let randGreen = Math.floor(Math.random() * 255);
-                                let randBlue = Math.floor(Math.random() * 255);
-
-                                button.style.backgroundColor = `rgb(${randRed}, ${randGreen}, ${randBlue})`;
+                        button.addEventListener('click', function(){
+                            console.log("button clicked");
                         });
-
-                            button.addEventListener('mouseup', function(){
-                                button.style.backgroundColor = "white";
-                        })
                         </code></pre>
                     </details>
                 </li>
-                <li>
-                    <button id="detectKeyInputs"></button>
-                    <p id="textHolder"></p>
+                <li><button id="button2">Replaces text inside button depending on click state</button>
                     <script>
-                        
-
+                        let button2 = document.getElementById('button2');
+                        button2.addEventListener('mousedown', function(){
+                            button2.innerHTML = "Clicking";
+                        });
+                        button2.addEventListener('mouseup', function(){
+                            button2.innerHTML = "No longer clicking";
+                        });
                     </script>
-                    <details><summary>Source Code:</summary><pre><code></code></pre></details></li>
-                <li><button id=""></button><script></script><details><summary>Source Code:</summary><pre><code></code></pre></details></li>
-                <li><button id=""></button><script></script><details><summary>Source Code:</summary><pre><code></code></pre></details></li>
-                <li><button id=""></button><script></script><details><summary>Source Code:</summary><pre><code></code></pre></details></li>
-                <li><button id=""></button><script></script><details><summary>Source Code:</summary><pre><code></code></pre></details></li>
+                    <details><summary>Source Code:</summary><pre><code>
+                        let button2 = document.getElementById('button2');
+                        button2.addEventListener('mousedown', function(){
+                            button2.innerHTML = "Clicking";
+                        });
+                        button2.addEventListener('mouseup', function(){
+                            button2.innerHTML = "No longer clicking";
+                        });
+                    </code></pre></details>
+                </li>
+                <li><button id="button3">turns background color green while scrolling. Click button to return to previous color</button>
+                    <script>
+                        let button3 = document.getElementById('button3');
+                        document.addEventListener('scroll', function(){
+                            button3.style.backgroundColor = 'green';
+                            button3.style.transition = 'background-color 0.75s';
+                        });
+                        button3.addEventListener('click', function(){
+                            button3.style.backgroundColor = '';
+                        });
+                    </script>
+                    <details><summary>Source Code:</summary><pre><code>
+                        let button3 = document.getElementById('button3');
+                        document.addEventListener('scroll', function(){
+                            button3.style.backgroundColor = 'green';
+                            button3.style.transition = 'background-color 0.75s';
+                        });
+                        button3.addEventListener('click', function(){
+                            button3.style.backgroundColor = '';
+                        });
+                    </code></pre></details>
+                </li>
+                <li><button id="button4">Changes text when button is hovered over</button>
+                <script>
+                    let button4 = document.getElementById('button4');
+
+                    button4.addEventListener('mouseover', function(){
+                        button4.innerHTML = "You hovered over this button";
+                    });
+                </script>
+                <details><summary>Source Code:</summary><pre><code>
+                    let button4 = document.getElementById('button4');
+
+                    button4.addEventListener('mouseover', function(){
+                        button4.innerHTML = "You hovered over this button";
+                    });
+                </code></pre></details></li>
+                <li><button>Console prints keys you've pressed</button>
+                    <script>
+                        document.addEventListener('keyup', function(event){
+                           console.log(event.key);
+                        });
+                    </script>
+                    <details><summary>Source Code:</summary><pre><code>
+                        document.addEventListener('keyup', function(event){
+                            console.log(event.key);
+                         });
+                    </code></pre></details>
+                </li>
             </ul>
     </ol>
 
