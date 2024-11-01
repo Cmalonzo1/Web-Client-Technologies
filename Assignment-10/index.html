@@ -24,57 +24,79 @@
     1. a. The first exercise at the end of the W3schools "HTML Forms" lesson, 
     which is linked from the lecture schedule in the syllabus. 
     Give what you typed in, or a screen shot.</span></p>
-    <pre class="answer">
-
-        First name: John
-        Last name: Doe
-
-        fullURLstring is: https://dberleant.github.io/IFSC3300/lectureFormProcessingExample.html?firstName=John&lastName=Doe
-        fullURLstring is: https://dberleant.github.io/IFSC3300/lectureFormProcessingExample.html,firstName=John&lastName=Doe
-        Notice '?' is removed and parts are now separated by a comma
-        array ['a','b','c','d','e'] prints out as: a,b,c,d,e
-        That should remind you what .split() returns.
-        firstName=John&lastName=Doe
-        firstName=John,lastName=Doe
-        firstName=John
-        lastName=Doe
-        John
-        Doe
-        Good afternoon, Doe. I am Robot, but please call me Robbie. May I call you John?
-    </pre>
+    
+    <p class="question">What is the correct HTML element for defining a form?</p>
+    <p class="answer">form</p>
     
     <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.6in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">
     b. The second exercise at the end of the W3schools "HTML Forms" lesson.</span></p>
     
+
+    <p class="question">In the form below, add an input field with the type "button" and the value "OK".</p>
+    <p class="answer">
+      <form>
+        <input type="button" value="OK">
+        </form>
+    </p>
+    
     <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.6in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">
     c. The third exercise at the end of the W3schools "HTML Forms" lesson.</span></p>
+
+    <p class="question">In the form below, add two radio buttons, both with the name "fav_language".</p>
+    <form>
+      <input type="radio" name="fav_language" value="html"> HTML
+      <input type="radio" name="fav_language" value="css"> CSS
+      </form>
     
     <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.6in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">
     d. The first exercise
     near the end of the "HTML Form Elements" lesson.</span></p>
+
+    <p class="question">What is the correct HTML element to group related data in a form and also, by default, draw a border around it?</p>
+    <p class="answer">Fieldset</p>
     
     <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.6in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">
     e. The second exercise
     near the end of the "HTML Form Elements" lesson.</span></p>
+
+    <p class="question">In the form below, add an empty drop down list with the name "cars".</p>
+    <form action="/action_page.php">
+      <select name="cars"></select>
+    </form>
     
         
     <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.6in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">
     f. The third exercise
     near the end of the "HTML Form Elements" lesson.</span></p>
+
+    <p class="question">In the form below, add two option elements to the drop down list.
+
+      The first option must have the value "Volvo"
+      The second option must have the value "Ford". </p>
+      <form action="/action_page.php">
+        <select name="cars">
+        <option value="Volvo">Volvo</option>
+        <option value="Ford">Ford</option>
+        </select>
+        </form>
         
       <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">2.</span><span style="font-size: 7pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">For an html
     form’s&nbsp;<b>submit</b>&nbsp;input type, what does the&nbsp;<b>name</b>&nbsp;attribute
     do? The&nbsp;<b>value</b>&nbsp;attribute?</span></p>
+
+    <p class="answer"><strong>Name</strong> is the name of the form element while the <strong>Value</strong> tells us what type of value is going to be stored in that form element</p>
     
     <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">3.</span><span style="font-size: 7pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Explain how secure the
     HTML form input type&nbsp;<b>password</b>&nbsp;is.</span></p>
+
+    <p class="answer">The password type is the baseline level of security. While the type masks the password, it's transferred over the network as plaintext, so it must be combined with other security measures such as HTTPS encryption and password hashing to improve its security.</p>
     
     <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">4.</span><span style="font-size: 7pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Write a form. 
@@ -84,6 +106,20 @@
     with the button collection from your previous HW, or start a
     new demo page without the previous buttons if you prefer. 
     </span></p>
+
+    <form action="https://www.w3schools.com/action_page.php">
+      <label for="firstName">First Name (takes name as input)</label>
+      <input type="name" name="firstName" placeholder="Enter your First Name"><br>
+      <label for="lastName">Last Name (takes name as input)</label>
+      <input type="name" name="lastName" placeholder="Enter your Last Name"><br>
+      <label for="birthDate">Birthdate (takes date as input)</label>
+      <input type="date" name="birthDate" placeholder="Enter your Birthdate"><br>
+      <label for="number">Specify how many cats you have (takes a number as input)</label>
+      <input type="number" name="number" placeholder="Enter how many cats you have in your household"><br>
+      <label for="color">Choose your favorite color (takes color as input)</label>
+      <input type="color" name="color"><br>
+      <input type="submit" name="submitInfo" placeholder="Submit Info"><br>
+    </form>
     
     <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
     margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">5.<span style="font-size: 7pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;&nbsp;</span>Make 
@@ -134,65 +170,103 @@
         do not submit as a link to a google drive document, because your comments will not show if someone clicks the link (they would have to
         remember to download the document and then load it into an editor).
     </p>
-    
-    <p class="MsoNormal" style="margin-bottom:10.0pt;line-height:12.65pt"><span style="color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;</span><span style="color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Do
-    not do the questions below from previous semesters.</span></p>
-    
-    <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
-    margin-left:.5in;text-indent:-.25in;line-height:12.65pt">
-    <span style="font-size: 5pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    6. For this question, do not submit a sandbox link (because the
-    w3schools sandbox environment doesn’t handle it right). Instead, put the
-    answers directly into the body of your email. Modify the page
-    at&nbsp;<a href="https://dberleant.github.io/IFSC3300/lectureFormProcessingExample.html">https://dberleant.github.io/IFSC3300/lectureFormProcessingExample.html</a>.
-    Make the form have, not two inputs as it currently has, but three. Call the new
-    one "middle name". Modify the form processing to handle the three
-    things instead of two as it does currently. Work directly with a browser and an
-    HTML file, not a w3schools sandbox.</span></p>
+
+    <!--- 1: Displays a message once the page is refreshed-->
+    <p id="newtab"></p>
+    <h2>Form handling example in JavaScript</h2>
+    <h3>(Or, John Doe meets Robbie Robot)</h3>
+    <h4>Instructions: Fill in the form. Then fill in comments 1 through 23 in the JavaScript code!</h4>
+    <form target="_blank" action="">  <!--- 2: replace this placeholder HTML comment with a real comment-->
+      Type your first name:
+      <br> <!--- 3: replace this placeholder HTML comment with a real comment-->
+      <input type="text" name="firstName" value="John"> <!--- 4: replace this placeholder HTML comment with a real comment-->
+      <br>
+      ...and last name:
+      <br>
+      <input type="text" name="lastName" value="Doe">
+      <br>
+      <input type="submit" value="Click to submit form"> <!--- 5: replace this placeholder HTML comment with a real comment-->
+      </form>
+      <br>
+      <br>
+      <p id="demo"> <!--- 6: replace this placeholder HTML comment with a real comment-->
+        <b>The analysis of the form data will appear here:</b>
+      </p>
+      <script>
+        //7 
+        function handleFormAction(){
+        //8 
+          if (document.URL.indexOf("?")>-1){
+               document.getElementById("newtab").innerHTML="<H1>You are looking at a new browser tab, in which this page has been reloaded. The initial load of this page is still in its original tab.</h1>"
+        //9 
+             processFormData();
+          }
         
-    <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
-    margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">7.</span><span style="font-size: 5pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Capture the output of a form in your own
-    page, extract from it, and show that it worked. Hint: if the form’s “action=”
-    is left out or given no value, the form output will be sent to the current page
-    (which will be reloaded). See the example we discussed in class, called “HTML
-    form demo &amp; exercise” in the syllabus.</span></p>
-    
-    <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
-    margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">8.</span><span style="font-size: 5pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Exercise 1 at end of lesson&nbsp;<a href="https://www.w3schools.com/html/html_form_input_types.asp"><span style="color: purple; --darkreader-inline-color: #ff72ff;" data-darkreader-inline-color="">HTML Input Types</span></a>.</span></p>
-    
-    <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
-    margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">9.</span><span style="font-size: 5pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Exercise 2 at end of lesson&nbsp;<a href="https://www.w3schools.com/html/html_form_input_types.asp"><span style="color: purple; --darkreader-inline-color: #ff72ff;" data-darkreader-inline-color="">HTML Input Types</span></a>.</span></p>
-    
-    <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
-    margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">10.</span><span style="font-size: 5pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;</span><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Exercise 3 at end of lesson&nbsp;<a href="https://www.w3schools.com/html/html_form_input_types.asp"><span style="color: purple; --darkreader-inline-color: #ff72ff;" data-darkreader-inline-color="">HTML Input Types</span></a>.</span></p>
-    
-    <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
-    margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">11.</span><span style="font-size: 5pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;</span><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Exercise 4 at end of lesson&nbsp;<a href="https://www.w3schools.com/html/html_form_input_types.asp"><span style="color: purple; --darkreader-inline-color: #ff72ff;" data-darkreader-inline-color="">HTML Input Types</span></a>.</span></p>
-    
-    <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
-    margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">12.</span><span style="font-size: 5pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;</span><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Exercise 5 at end of lesson&nbsp;<a href="https://www.w3schools.com/html/html_form_input_types.asp"><span style="color: purple; --darkreader-inline-color: #ff72ff;" data-darkreader-inline-color="">HTML Input Types</span></a>.</span></p>
-    
-    <p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
-    margin-left:.5in;text-indent:-.25in;line-height:12.65pt"><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">13.</span><span style="font-size: 5pt; font-family: &quot;Times New Roman&quot;, serif; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;&nbsp;&nbsp;</span><span style="font-size: 5pt; color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">Demonstrate 10 different form input
-    attributes from the&nbsp;<a href="https://www.w3schools.com/html/html_form_attributes.asp"><span style="color: purple; --darkreader-inline-color: #ff72ff;" data-darkreader-inline-color="">HTML Input Attributes</span></a>&nbsp;lesson.</span></p>
-    
-    <p class="MsoNormal" style="margin-bottom:10.0pt;line-height:12.65pt"><span style="color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;</span></p>
-    
-    <p class="MsoNormal" style="margin-bottom:10.0pt;line-height:12.65pt"><span style="color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;</span></p>
-    
-    <p class="MsoNormal" style="margin-bottom:10.0pt;line-height:12.65pt"><span style="color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;</span></p>
-    
-    <p class="MsoNormal" style="margin-bottom:10.0pt;line-height:12.65pt"><span style="color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;</span></p>
-    
-    <p class="MsoNormal" style="margin-bottom:10.0pt;line-height:12.65pt"><span style="color: black; --darkreader-inline-color: #e8e6e3;" data-darkreader-inline-color="">&nbsp;</span></p>
-    
-    <p class="MsoNormal">&nbsp;</p>
-    
-    </div>
-    
-    
-    
-    
+        }
+        //10 
+        function processFormData(){
+          //11
+          let fullURLstring=document.URL
+          //12
+          document.getElementById('demo').innerHTML
+             +=  "<br>fullURLstring is: "+fullURLstring;
+          //13
+          let separate_argsPassedIn=fullURLstring.split("?");
+          //14
+          document.getElementById('demo').innerHTML
+             += "<br>fullURLstring is: "+ separate_argsPassedIn;
+          //15
+          document.getElementById('demo').innerHTML
+             += "<br>Notice '?' is removed and parts are now separated by a comma";
+          //16
+          let tempArray=['a','b','c','d','e'];
+          //17
+          document.getElementById('demo').innerHTML
+             += "<br>array ['a','b','c','d','e'] prints out as: "
+                + tempArray;
+          //18
+          document.getElementById('demo').innerHTML
+             += "<br>That should remind you what .split() returns.";
+          //19
+          let argsPassedIn=separate_argsPassedIn[1];
+          //20
+          document.getElementById('demo').innerHTML
+             += "<br>"+argsPassedIn;
+          //21
+          let arrayOfArgs=argsPassedIn.split("&");
+          //22
+          document.getElementById('demo').innerHTML
+             += "<br>"+arrayOfArgs;
+          //23
+          let arg1=arrayOfArgs[0];
+          //24
+          let arg2=arrayOfArgs[1];
+          //25
+          document.getElementById('demo').innerHTML
+             += "<br>"+arg1;
+          //26
+          document.getElementById('demo').innerHTML
+             += "<br>"+arg2;
+          //27
+          let separate_firstName = arg1.split("=");
+          //28
+          let separate_lastName  = arg2.split("=");
+          //29
+          let firstName=separate_firstName[1];
+          //30
+          let lastName =separate_lastName [1];
+          //31
+          document.getElementById('demo').innerHTML
+             += "<br>"+firstName;
+          //32
+          document.getElementById('demo').innerHTML
+             += "<br>"+lastName;
+          //33
+          document.getElementById('demo').innerHTML
+             += "<br>Good afternoon, "+lastName+". I am Robot, but please call me Robbie. May I call you "+firstName+"?";
+        }
+        </script>
+
     </body>
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>

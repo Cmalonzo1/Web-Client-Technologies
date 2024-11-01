@@ -1,7 +1,7 @@
 html{
     box-sizing: border-box;
     font-family: 'Arial';
-    background-color: white;
+    background-color: grey;
     color: black;
 }
 
@@ -9,6 +9,10 @@ html{
     box-sizing: inherit;
 }
 
+.question{
+    color: darkgreen;
+}
+
 .answer{
-    color: red;
+    color: maroon;
 }
