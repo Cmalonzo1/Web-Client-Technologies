@@ -10,9 +10,113 @@
     <h1>Assignment </h1>
     <h2>Carson Alonzo | Web Client Applications</h2>
 
-    1. Make a form that contains a bunch of different features described in the W3schools lessons Form Elements,  Form input types, and Form attributes. Each feature should have a label explaining what it does. Make your action handler be https://www.w3schools.com/action_page.php and be sure the form has a "submit" input type. You may start with the form from the previous HW if you like. Put this form in an existing page that already has buttons to demonstrate things from earlier HW(s), or make a new page if you prefer.
+    <ol>
+        <li>Make a form that contains a bunch of different features described in the W3schools lessons Form Elements,  Form input types, and Form attributes. Each feature should have a label explaining what it does. Make your action handler be https://www.w3schools.com/action_page.php and be sure the form has a "submit" input type. You may start with the form from the previous HW if you like. Put this form in an existing page that already has buttons to demonstrate things from earlier HW(s), or make a new page if you prefer.
+        </li>
+        
+        <form action="https://www.w3schools.com/action_page.php">
 
-2. Make a small game or demo in which you use setTimeOut() and/or clearTimeOut() along with buttons, showing how these work. Add it to your buttons page.
+        <label for="name">Enter your name:</label><br>
+        <input type="text" placeholder="Enter your name" class="item"><br>
+
+        <label for="pets">Select your favorite pet</label><br>
+        <select id="pets" name="pets" class="item"> 
+            <option value="dog">dog</option>
+            <option value="cat">cat</option>
+            <option value="fox">fox</option>
+            <option value="fish">fish</option>
+            <option value="rabbit">rabbit</option>
+            <option value="snake">snake</option>
+            <option value="hamster">hamster</option>
+        </select><br>
+
+        <label for="fileUpload">Upload whatever file you want</label><br>
+        <input type="file" value="fileUpload" name="fileUpload"><br>
+
+        <label for="quiz" class="item">Name the gas giant in the galaxy cluster Kepler 429-B</label><br>
+        <input type="radio" name="quiz" value="The Bermuda Triangle">The Bermuda Triangle<br>
+        <input type="radio" name="quiz" value="Blue">Blue<br>
+        <input type="radio" name="quiz" value="4.28e-3">4.28e-3<br>
+        <input type="radio" name="quiz" value="False">False<br>
+
+        <label for="password">Enter super secret password</label><br>
+        <input type="password" name="password"><br>
+
+        <input type="submit" class="item">
+        </form>
+        
+
+        <li>Make a small game or demo in which you use setTimeOut() and/or clearTimeOut() along with buttons, showing how these work. Add it to your buttons page.</li>
+
+        <div id="cps-test">
+
+            <h3>CPS Test</h3>
+            
+        <button id="clickerButton">Click this button</button>
+        <p id="clicks"></p>
+        <p id="timerDisplay"></p>
+        <p id="cps"></p>
+
+        <script>
+
+            //get the IDs
+            let clickerButton = document.getElementById('clickerButton');   
+            let clicks = document.getElementById('clicks');
+            let timerDisplay = document.getElementById('timer');
+            let cps = document.getElementById('cps');
+
+            let clickCount = 0;
+            var timeout = setTimeout(endTest, 5000); //runs endTest after 5 seconds
+            
+            clickerButton.addEventListener('click', incrementClicks);
+
+            //displays the amount of times you've clicked
+            function incrementClicks(){
+                clickCount++;
+                clicks.innerHTML = `Clicks: ${clickCount}`;
+            }
+            
+            //clears the timer, prevents you from incrementing your cps counter, and displays your cps over a period of 5 seconds
+            function endTest(){
+                clearTimeout(timeout);
+                clickerButton.removeEventListener('click', incrementClicks);
+                cps.innerHTML = `Your CPS: ${clickCount / 5}`;
+            }
+            
+        </script>
+
+        </div>
+        <details>
+            <summary>Source Code:</summary>
+            <pre><code>
+                //get the IDs
+                let clickerButton = document.getElementById('clickerButton');   
+                let clicks = document.getElementById('clicks');
+                let timerDisplay = document.getElementById('timer');
+                let cps = document.getElementById('cps');
+    
+                let clickCount = 0;
+                var timeout = setTimeout(endTest, 5000); //runs endTest after 5 seconds
+                
+                clickerButton.addEventListener('click', incrementClicks);
+    
+                //displays the amount of times you've clicked
+                function incrementClicks(){
+                    clickCount++;
+                    clicks.innerHTML = `Clicks: ${clickCount}`;
+                }
+                
+                //clears the timer, prevents you from incrementing your cps counter, and displays your cps over a period of 5 seconds
+                function endTest(){
+                    clearTimeout(timeout);
+                    clickerButton.removeEventListener('click', incrementClicks);
+                    cps.innerHTML = `Your CPS: ${clickCount / 5}`;
+                }
+            </code></pre>
+        </details>
+    </ol>
+
+    
 
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
