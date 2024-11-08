@@ -10,59 +10,102 @@
     <h1>Assignment </h1>
     <h2>Carson Alonzo | Web Client Applications</h2>
 
-    1. Consider this code, based on the first "Try It Yourself" exercise in the DOM Nodes lesson on w3schools.com:
+    <ol>
+        <li>
+            <h3>Consider this code, based on the first "Try It Yourself" exercise in the DOM Nodes lesson on w3schools.com:</h2>
+                <div id="div1">
+                    <h1>This is a header</h1><h2>This is a header</h2><p id="p1">This is a paragraph.</p><p id="p2">This is another paragraph.</p>
+                    </div>
+                    <pre><code>
+                    var paragraphNode = document.createElement("b");
+                    
+                    var textNode = document.createTextNode(paragraphNode.nodeType);
+                    
+                    textNode = document.createTextNode(textNode.nodeName);
+                    
+                    paragraphNode.appendChild(textNode);
+                    
+                    var divisionNode = document.getElementById("div1");
+                    
+                    var someChild = divisionNode.childNodes[3];
+                    
+                    divisionNode.insertBefore(paragraphNode,someChild);
+                    </code></pre>
+                    
+                    <script>
+                    
+                    var paragraphNode = document.createElement("b");
+                    
+                    var textNode = document.createTextNode(paragraphNode.nodeType);
+                    
+                    textNode = document.createTextNode(textNode.nodeName);
+                    
+                    paragraphNode.appendChild(textNode);
+                    
+                    var divisionNode = document.getElementById("div1");
+                    
+                    var someChild = divisionNode.childNodes[3];
+                    
+                    divisionNode.insertBefore(paragraphNode,someChild);
+                    
+                    </script>
 
-<!DOCTYPE html>
+                    <ol type='a'>
+                        <li>
+                            <h4>Find the number 3 in the code. Try replacing it with the following numbers: 0, 1, 2, 3, 4, 100. What does each number do? Why?</h4>
+                            <p class="answer">The number selects the child node inside of the parent node "div1" to insert text before that child. While not exactly the same, this node system serves as like an array of nodes, where the parent node is the array and the children are the items inside of it.</p>
+                        <li>
+                            <h4>For the value 3, compare having the two paragraphs on separate lines (as they are above) to having them on the same line with no spaces between them.</h4>
+                            <p class="answer">When the paragraphs are on separate lines, the whitespace is treated as a child node. When the paragraphs are on the same line, there are two child nodes. With the whitespace, there are three.</p>
+                        </li>
+                    </ol>
+        </li>
+        <li>
+            <h3>Consider nodes' parentNode, childNodes, firstChild, lastChild, nextSibling, and previousSibling properties (properties, or attributes, or members, are local variables in an object, such as a DOM node object).These are described in <a href="https://www.w3schools.com/js/js_htmldom_navigation.asp">https://www.w3schools.com/js/js_htmldom_navigation.asp</a>. Make buttons demonstrating any two of them by modifying the code of question 1 above. Add these buttons to the button based JavaScript demo you made for a previous HW or HWs. Explain what happened in each of the two cases.
+            </h3>
 
-<html>
+            <div id="div2">
+                <h1>This is a header</h1><h2>This is a header</h2><p id="p1">This is a paragraph.</p><p id="p2">This is another paragraph.</p>
+            </div>
 
-<body>
+            <button id="incrementer">Click to increment the node to the next child</button><br>
+            <button id="decrementer">Click to decrement the node to the previous child</button>
+            <script>
+                    let index = 0;
+                    let incrementer = document.getElementById('incrementer');
+                    let decrementer = document.getElementById('decrementer');
 
-<div id="div1">
+                    var paragraphNode = document.createElement("b");
+                    
+                    var textNode = document.createTextNode(paragraphNode.nodeType);
+                    
+                    textNode = document.createTextNode(textNode.nodeName);
+                    
+                    paragraphNode.appendChild(textNode);
+                    
+                    var divisionNode = document.getElementById("div2");
+                    
+                    var someChild = divisionNode.childNodes[changeNode];
+                    
+                    divisionNode.insertBefore(paragraphNode,someChild);
 
-<p id="p1">This is a paragraph.</p>
+                function changeNode(){
+                    incrementer.addEventListener('click', function(){
+                        index++;
+                        return index;
+                    })
+                }
+            </script>
 
-<p id="p2">This is another paragraph.</p>
+        </li>
+        <li>Do exercises 6, 7, & 8 which are at the bottom of the “DOM CSS” lesson page <a href="https://www.w3schools.com/js/js_htmldom_css.asp">(https://www.w3schools.com/js/js_htmldom_css.asp)</a>. Explain what does it mean to set the CSS style.display value to “block”.</li>
+        <li>Consider the animated progress bar “Try it Yourself” example at <a href="http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar">http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar</a>. Make some fun or interesting changes to the animation. State what they are in the program. Change the program further so that it prints out the value of the setInterval() call.</li>
+    </ol>
 
-</div>
 
-<script>
+3. 
 
-var paragraphNode = document.createElement("b");
-
-var textNode = document.createTextNode(paragraphNode.nodeType);
-
-textNode = document.createTextNode(textNode.nodeName);
-
-paragraphNode.appendChild(textNode);
-
-var divisionNode = document.getElementById("div1");
-
-var someChild = divisionNode.childNodes[3];
-
-divisionNode.insertBefore(paragraphNode,someChild);
-
-</script>
-
-</body>
-
-</html>
-
- 
-
-1a. Find the number 3 in the code. Try replacing it with the following numbers: 0, 1, 2, 3, 4, 100. What does each number do? Why?
-
-1b. For the value 3, compare having the two paragraphs on separate lines (as they are above) to having them on the same line with no spaces between them, like this:
-
-<p id="p1">This is a paragraph.</p><p id="p2">This is another paragraph.</p>
-
-Explain.
-
-2. Consider nodes' parentNode, childNodes, firstChild, lastChild, nextSibling, and previousSibling properties (properties, or attributes, or members, are local variables in an object, such as a DOM node object).These are described in https://www.w3schools.com/js/js_htmldom_navigation.asp. Make buttons demonstrating any two of them by modifying the code of question 1 above. Add these buttons to the button based JavaScript demo you made for a previous HW or HWs. Explain what happened in each of the two cases.
-
-3. Do exercises 6, 7, & 8 which are at the bottom of the “DOM CSS” lesson page (https://www.w3schools.com/js/js_htmldom_css.asp). Explain what does it mean to set the CSS style.display value to “block”.
-
-4. Consider the animated progress bar “Try it Yourself” example at http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar. Make some fun or interesting changes to the animation. State what they are in the program. Change the program further so that it prints out the value of the setInterval() call.
+4. 
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
     </footer>
