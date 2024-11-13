@@ -64,48 +64,58 @@
             <h3>Consider nodes' parentNode, childNodes, firstChild, lastChild, nextSibling, and previousSibling properties (properties, or attributes, or members, are local variables in an object, such as a DOM node object).These are described in <a href="https://www.w3schools.com/js/js_htmldom_navigation.asp">https://www.w3schools.com/js/js_htmldom_navigation.asp</a>. Make buttons demonstrating any two of them by modifying the code of question 1 above. Add these buttons to the button based JavaScript demo you made for a previous HW or HWs. Explain what happened in each of the two cases.
             </h3>
 
-            <div id="div2">
-                <h1>This is a header</h1><h2>This is a header</h2><p id="p1">This is a paragraph.</p><p id="p2">This is another paragraph.</p>
+            <div id="div1">
+                <p>First paragraph</p>
+                <p>Second paragraph</p>
+                <p>Third paragraph</p>
+                <p>Fourth paragraph</p>
             </div>
-
-            <button id="incrementer">Click to increment the node to the next child</button><br>
-            <button id="decrementer">Click to decrement the node to the previous child</button>
+            
+            <button id="firstChildButton">Show First Child of div1</button>
+            <button id="nextSiblingButton">Show Next Sibling of Second Paragraph</button>
+            
             <script>
-                    let index = 0;
-                    let incrementer = document.getElementById('incrementer');
-                    let decrementer = document.getElementById('decrementer');
-
-                    var paragraphNode = document.createElement("b");
+                var paragraphNode = document.createElement("b");
+                
+                // Adding text content to the paragraphNode
+                var textNode = document.createTextNode("Bold Element Node");
+                paragraphNode.appendChild(textNode);
+                
+                // Selecting the division node and adding the paragraph node
+                var divisionNode = document.getElementById("div1");
+                var someChild = divisionNode.childNodes[3];
+                divisionNode.insertBefore(paragraphNode, someChild);
+                
+                // Button for firstChild demonstration
+                document.getElementById("firstChildButton").onclick = function() {
+                    var firstChildNode = divisionNode.firstChild;
+                    alert("First child of div1 is: " + firstChildNode.nodeName);
+                };
+                
+                // Button for nextSibling demonstration
+                document.getElementById("nextSiblingButton").onclick = function() {
+                    var secondParagraph = divisionNode.childNodes[1];
+                    var nextSiblingNode = secondParagraph.nextSibling;
                     
-                    var textNode = document.createTextNode(paragraphNode.nodeType);
+                    // Skip any text nodes (like whitespace) to get the actual element sibling
+                    while (nextSiblingNode && nextSiblingNode.nodeType !== 1) {
+                        nextSiblingNode = nextSiblingNode.nextSibling;
+                    }
                     
-                    textNode = document.createTextNode(textNode.nodeName);
-                    
-                    paragraphNode.appendChild(textNode);
-                    
-                    var divisionNode = document.getElementById("div2");
-                    
-                    var someChild = divisionNode.childNodes[changeNode];
-                    
-                    divisionNode.insertBefore(paragraphNode,someChild);
-
-                function changeNode(){
-                    incrementer.addEventListener('click', function(){
-                        index++;
-                        return index;
-                    })
-                }
+                    if (nextSiblingNode) {
+                        alert("Next sibling of the second paragraph is: " + nextSiblingNode.nodeName);
+                    } else {
+                        alert("No next sibling found.");
+                    }
+                };
             </script>
 
         </li>
         <li>Do exercises 6, 7, & 8 which are at the bottom of the “DOM CSS” lesson page <a href="https://www.w3schools.com/js/js_htmldom_css.asp">(https://www.w3schools.com/js/js_htmldom_css.asp)</a>. Explain what does it mean to set the CSS style.display value to “block”.</li>
+        <p class="answer">Setting the display of an element to block lets it take up the space available in its container</p>
         <li>Consider the animated progress bar “Try it Yourself” example at <a href="http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar">http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar</a>. Make some fun or interesting changes to the animation. State what they are in the program. Change the program further so that it prints out the value of the setInterval() call.</li>
     </ol>
 
-
-3. 
-
-4. 
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
     </footer>
