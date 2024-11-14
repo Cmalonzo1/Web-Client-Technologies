@@ -12,3 +12,43 @@ html{
 .answer{
     color: red;
 }
+
+.blockContainer{
+    display: block;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.block{
+    display: block;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+}
+
+.block:nth-child(2){
+    width: 200px;
+}
+.block:nth-child(3){
+    width: 400px;
+}
+
+.flexContainer{
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+.flex{
+    display: flex;
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+}
+.flex:nth-child(2){
+    width: 200px;
+}
+.flex:nth-child(3){
+    width: 400px;
+}
+
