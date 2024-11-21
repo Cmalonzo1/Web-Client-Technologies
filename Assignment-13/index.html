@@ -9,21 +9,127 @@
 <body>
     <h1>Assignment </h1>
     <h2>Carson Alonzo | Web Client Applications</h2>
+    <style>
+        li{
+            margin-bottom: 20px;
+        }
+        .answer{
+            color: red;
+        }
+    </style>
 
-    1. Does window.document.getElementById() do the same thing as document.getElementById()? Why or why not? You can try this out in a sandbox without buttons, or you could make two buttons, one for running each of the two code snippets. If you do it with buttons, feel free to add them to a collection of buttons from previous assignments.
+    <ol>
+        <li>Does window.document.getElementById() do the same thing as document.getElementById()? Why or why not? You can try this out in a sandbox without buttons, or you could make two buttons, one for running each of the two code snippets. If you do it with buttons, feel free to add them to a collection of buttons from previous assignments.</li>
 
-2. Does window.innerHeight have the same value as screen.height? Why or why not? You can try this in a sandbox without buttons, or use buttons.
+        <p class="answer">Yes, both do the same thing. The only difference is that window is a global object that represents the current window or tab in the browser, while document is an object that represents the current document loaded in that window.</p>
 
-3. Does screen.height have the same value as screen.availHeight? Why or why not? You can try this in a sandbox without buttons, or use buttons.
+        <li>Does window.innerHeight have the same value as screen.height? Why or why not? You can try this in a sandbox without buttons, or use buttons.</li>
+        
+        <p class="answer">They do not. window.innerHeight is the height of the browser window, including the height of the browser toolbar and scroll bars, while screen.height is the total height of the screen displaying the content. In my case, window.innerHeight logs 927 <em>(The height of my browser window)</em> and screen.height logs 1080 <em>(The height of my monitor)</em>.</p>
 
-4. Get the window.location.href property. Does the result make sense? You can try this in a sandbox without buttons, or use buttons.
+        <li>Does screen.height have the same value as screen.availHeight? Why or why not? You can try this in a sandbox without buttons, or use buttons.</li>
+        
+        <p class="answer">They do not. screen.height is the total height of the screen displaying the content, while screen.availHeight is the height of the screen minus the height of the system menus and toolbars. In my case, screen.height logs 1080 <em>(The height of my monitor)</em> and screen.availHeight logs 1040 <em>(The height of my monitor minus the height of the system menus and toolbars)</em>.</p>
 
-5. Does your browser have cookies enabled? (Try navigator.cookieEnabled). We will discuss cookies more next time. You can try this in a sandbox without a button, or use buttons.
+        <li>Get the window.location.href property. Does the result make sense? You can try this in a sandbox without buttons, or use buttons.</li>
+        <button onclick="console.log(window.location.href)">Prints the URL of the current page</button>
+        <p class="answer">The result makes sense. It's the URL of the current page.</p>
 
-6. Does window.alert(“Hi!”); do the same thing as alert(“Hi!”); ? Why or why not? You can try this in a sandbox without buttons, or use buttons.
+        <li>Does your browser have cookies enabled? (Try navigator.cookieEnabled). We will discuss cookies more next time. You can try this in a sandbox without a button, or use buttons.</li>
+        <button onclick="console.log(navigator.cookieEnabled)">Check if Cookies are Enabled</button>
+        <p class="answer">In my case, navigator.cookieEnabled logs true, meaning that my browser has cookies enabled.</p>
+        <li>Does window.alert(“Hi!”); do the same thing as alert(“Hi!”); ? Why or why not? You can try this in a sandbox without buttons, or use buttons.</li>
 
-7. Recall the DOM. Write a script that has buttons for moving around in the DOM tree. To review how to move around in the tree, see the video of the last DOM lecture (where we discussed the topic "DOM Navigation"). Different buttons could access childNode, parentNode, nextSibling, for example. It could print out nodeName, nodeType, nodeValue, use a for-in loop to show the components of a give node, etc. Feel free to add the buttons to a collection of buttons from earlier assignments for easy future reference.
+        <p class="answer">Yes, both do the same thing. It's the same situation as calling an element's ID using window.document.getElementById() vs just using document.getElementById().</p>
 
+        <li>Recall the DOM. Write a script that has buttons for moving around in the DOM tree. To review how to move around in the tree, see the video of the last DOM lecture (where we discussed the topic "DOM Navigation"). Different buttons could access childNode, parentNode, nextSibling, for example. It could print out nodeName, nodeType, nodeValue, use a for-in loop to show the components of a give node, etc. Feel free to add the buttons to a collection of buttons from earlier assignments for easy future reference.</li>
+
+        <div id="controls">
+            <button onclick="moveToParent()">Parent Node</button>
+            <button onclick="moveToFirstChild()">First Child</button>
+            <button onclick="moveToNextSibling()">Next Sibling</button>
+            <button onclick="moveToPrevSibling()">Previous Sibling</button>
+            <button onclick="showNodeInfo()">Show Node Info</button>
+        </div>
+    
+        <div id="domTree">
+            <h2>Parent Element</h2>
+            <div>
+                <p>First Child</p>
+                <p>Second Child</p>
+                <p>Third Child</p>
+            </div>
+            <span>Sibling Element</span>
+        </div>
+    
+        <div id="nodeInfo"></div>
+    
+        <script>
+            let currentNode = document.getElementById('domTree');
+            highlightNode();
+    
+            function highlightNode() {
+                // Remove previous highlighting
+                document.querySelectorAll('.selected').forEach(el => {
+                    el.classList.remove('selected');
+                });
+                // Add highlighting to current node
+                currentNode.classList.add('selected');
+            }
+    
+            function moveToParent() {
+                if (currentNode.parentNode && currentNode.parentNode !== document) {
+                    currentNode = currentNode.parentNode;
+                    highlightNode();
+                }
+            }
+    
+            function moveToFirstChild() {
+                if (currentNode.firstElementChild) {
+                    currentNode = currentNode.firstElementChild;
+                    highlightNode();
+                }
+            }
+    
+            function moveToNextSibling() {
+                if (currentNode.nextElementSibling) {
+                    currentNode = currentNode.nextElementSibling;
+                    highlightNode();
+                }
+            }
+    
+            function moveToPrevSibling() {
+                if (currentNode.previousElementSibling) {
+                    currentNode = currentNode.previousElementSibling;
+                    highlightNode();
+                }
+            }
+    
+            function showNodeInfo() {
+                const info = document.getElementById('nodeInfo');
+                let nodeInfo = `
+                    <h3>Node Information:</h3>
+                    <p>Node Name: ${currentNode.nodeName}</p>
+                    <p>Node Type: ${currentNode.nodeType}</p>
+                    <p>Node Value: ${currentNode.nodeValue || 'null'}</p>
+                    <p>Child Nodes: ${currentNode.childNodes.length}</p>
+                    <h4>Node Properties:</h4>
+                `;
+    
+                // Using for-in loop to show node properties
+                let props = [];
+                for (let prop in currentNode) {
+                    if (typeof currentNode[prop] !== 'function' && 
+                        typeof currentNode[prop] !== 'object') {
+                        props.push(`${prop}: ${currentNode[prop]}`);
+                    }
+                }
+                nodeInfo += `<p>${props.slice(0, 10).join('<br>')}</p>`;
+                
+                info.innerHTML = nodeInfo;
+            }
+        </script>
+    </ol>
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
     </footer>
