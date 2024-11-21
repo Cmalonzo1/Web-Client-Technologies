@@ -10,12 +10,64 @@
     <h1>Assignment </h1>
     <h2>Carson Alonzo | Web Client Applications</h2>
 
-    1. Read up on cookie security and write 125 words or more about the topic.
+    <ol>
+        <li>Read up on cookie security and write 125 words or more about the topic.</li>
+        <li>Write code with buttons that: create a cookie with attribute "flavor" and value "chocolate chip" (or whatever your favorite kind is); displays the cookie; and changes the cookie value.
+            <button id="cookieButton" onclick="createCookie()">Creates cookie with a random flavor and displays it in the console</button>
+            <p class="cookieFlavor"></p>
+            
+            <script>
+                let cookieButton = document.getElementById('cookieButton');
+                let theCookie = document.getElementById('cookieFlavor');
 
-2. Write code with buttons that: create a cookie with attribute "flavor" and value "chocolate chip" (or whatever your favorite kind is); displays the cookie; and changes the cookie value.
+                function createCookie(){
+                    
+                    const cookieFlavors = [
+                    "Chocolate Chip",
+                    "Oatmeal Raisin",
+                    "Sugar",
+                    "Snickerdoodle",
+                    "Peanut Butter",
+                    "Double Chocolate",
+                    "Gingerbread",
+                    "M&M",
+                    "Macadamia Nut",
+                    "Lemon Drop"
+                    ];
 
-3. Add one(1) more button demonstrating an example of regular expressions using the "*" and "+" regular expression operators.
+                    let cookieFlavor = Math.floor(Math.random(cookieFlavors.length));
 
+                    document.cookie = "flavor=" + cookieFlavors[cookieFlavor];
+
+                    let cookie = document.cookie.split(';')
+
+                }
+                
+            </script>
+            <details>
+                <summary>Source Code:</summary>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+            </details>
+        </li>
+        <li>Add one(1) more button demonstrating an example of regular expressions using the "*" and "+" regular expression operators.</li>
+        <li>
+            <ol type="a">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </li>
+    </ol>
+
+    
+<p style="color: red">
+    
 (Don't do the below, it is here for historical and perhaps future purposes only.)
 
 4. Consider W3school's page on JS support for local storage. It has a "Try it Yourself" sandbox that has code you can modify for this problem if you like.
@@ -26,6 +78,7 @@ c)Print the value of the stringified myObj so you can see what it looks like.
 d) Modify the getItem() call and add any code necessary to retrieve the JSON text, parse it back into an object, and print the address.
 
 Note to instructor: another possible cookies problem to consider for future use is:  Type into a form and save into cookies, using the example I gave for processing a form in its own web page.
+</p>
 
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>
