@@ -13,16 +13,14 @@
     <ol>
         <li>Read up on cookie security and write 125 words or more about the topic.</li>
         <li>Write code with buttons that: create a cookie with attribute "flavor" and value "chocolate chip" (or whatever your favorite kind is); displays the cookie; and changes the cookie value.
-            <button id="cookieButton" onclick="createCookie()">Creates cookie with a random flavor and displays it in the console</button>
-            <p class="cookieFlavor"></p>
+            <button id="cookieButton">Creates cookie with a random flavor and displays it in the console</button>
+            <p class="storedCookie"></p>
             
             <script>
                 let cookieButton = document.getElementById('cookieButton');
-                let theCookie = document.getElementById('cookieFlavor');
+                let storedCookie = document.getElementById('storedCookie');
 
-                function createCookie(){
-                    
-                    const cookieFlavors = [
+                let cookieFlavors = [
                     "Chocolate Chip",
                     "Oatmeal Raisin",
                     "Sugar",
@@ -35,12 +33,18 @@
                     "Lemon Drop"
                     ];
 
-                    let cookieFlavor = Math.floor(Math.random(cookieFlavors.length));
+                    let cookieFlavor = Math.floor(Math.random() * cookieFlavors.length);
 
-                    document.cookie = "flavor=" + cookieFlavors[cookieFlavor];
+                    let chosenCookieFlavor = cookieFlavors[cookieFlavor];
 
-                    let cookie = document.cookie.split(';')
+                function createCookie(){
+                    document.cookie = "flavor=" + chosenCookieFlavor;
+                    return document.cookie;
+                }                
 
+                function getCookie(){
+                    let cookie = createCookie();
+                    console.log(cookie);
                 }
                 
             </script>
