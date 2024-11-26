@@ -10,13 +10,165 @@
     <h1>Assignment </h1>
     <h2>Carson Alonzo | Web Client Applications</h2>
 
-    1. Declare an object with at least 4 properties and a method. Print the values of the properties, the value of the method (which looks like source code because a method is a property, a property whose value is code instead of a number, a boolean, a string or whatever), and the result of running the method (i.e. its returned value).
+    <ol>
+        <li>Declare an object with at least 4 properties and a method. Print the values of the properties, the value of the method (which looks like source code because a method is a property, a property whose value is code instead of a number, a boolean, a string or whatever), and the result of running the method (i.e. its returned value).</li>
+        <p id="individual"></p>
 
-2. Declare a constructor function (which by convention starts with a capital letter). Make it able to create objects with the same properties and method as above. Create three of the objects. Print the property values, method code, and method return value of one of the objects.
+        <script>
 
-If 1,000 objects needed to be created (as elements of an array, for example), using a constructor function is a lot better than trying to declare each object individually!
+            let individual = document.getElementById("individual");
+            const person = {
+                name: "Carson",
+                age: 20,
+                jobTitle: "IT Client Support Specialist",
+                isADoctor: false,
 
-3. Declare a class that does the same thing as the constructor function above. Make an object from the class. Print out the property values, method code, and method return value of the object.
+                introduction(){
+                    return 2 + 2
+                }
+            };
+
+            individual.innerHTML = `
+            Person's name: ${person.name} (${typeof person.name}) <br> 
+            Person's age: ${person.age} (${typeof person.age}) <br> 
+            Person's profession: ${person.jobTitle} (${typeof person.jobTitle}) <br> 
+            Is this person a doctor? ${person.isADoctor} (${typeof person.isADoctor}) <br> 
+            Method: ${typeof person} <br>
+            ${person.introduction().toString}
+            `;
+        </script>
+
+        <details>
+            <summary>Source Code:</summary>
+            <pre><code>
+                let individual = document.getElementById("individual");
+                    const person = {
+                        name: "Carson",
+                        age: 20,
+                        jobTitle: "IT Client Support Specialist",
+                        isADoctor: false,
+        
+                        introduction(){
+                            return 2 + 2
+                        }
+                    };
+        
+                    individual.innerHTML = `
+                    Person's name: ${person.name} (${typeof person.name}) <br> 
+                    Person's age: ${person.age} (${typeof person.age}) <br> 
+                    Person's profession: ${person.jobTitle} (${typeof person.jobTitle}) <br> 
+                    Is this person a doctor? ${person.isADoctor} (${typeof person.isADoctor}) <br> 
+                    Method: ${typeof person}
+                    `;
+            </code></pre>
+        </details>
+        
+        <li>Declare a constructor function (which by convention starts with a capital letter). Make it able to create objects with the same properties and method as above. Create three of the objects. Print the property values, method code, and method return value of one of the objects.
+            <p>- If 1,000 objects needed to be created (as elements of an array, for example), using a constructor function is a lot better than trying to declare each object individually!</p>
+            <p id="individual2"></p>
+
+            <script>
+                let individual2 = document.getElementById("individual2");
+                class Person{
+                    constructor(name, age, jobTitle, isADoctor){
+                        this.name = name;
+                        this.age = age;
+                        this.jobTitle = jobTitle;
+                        this.isADoctor = isADoctor;
+                    }
+                    
+                    introduction(){
+                    return `
+                    Person's name: ${this.name} (${typeof this.name}) <br> 
+                    Person's age: ${this.age} (${typeof this.age}) <br> 
+                    Person's profession: ${this.jobTitle} (${typeof this.jobTitle}) <br> 
+                    Is this person a doctor? ${this.isADoctor} (${typeof this.isADoctor}) <br> 
+                    Method: ${typeof Person}
+                    `;
+                    }
+                }
+    
+                let me = new Person("Carson", 20, "IT Client Support Specialist", false);
+                let randomGuy = new Person("Jacob", 41, "Doctor", true);
+                let randomGirl = new Person("Abby", 29, "Financing Admin", false);
+                individual2.innerHTML = `${me.introduction()}<br><br><br>${randomGuy.introduction()}<br><br><br>${randomGirl.introduction()}<br><br><br>${me.introduction().toString}`;
+
+            </script>
+
+        <details>
+            <summary>Source Code:</summary>
+            <pre><code>
+                let individual2 = document.getElementById("individual2");
+                class Person{
+                    constructor(name, age, jobTitle, isADoctor){
+                        this.name = name;
+                        this.age = age;
+                        this.jobTitle = jobTitle;
+                        this.isADoctor = isADoctor;
+                    }
+                    
+                    introduction(){
+                    return `
+                    Person's name: ${this.name} (${typeof this.name}) <br> 
+                    Person's age: ${this.age} (${typeof this.age}) <br> 
+                    Person's profession: ${this.jobTitle} (${typeof this.jobTitle}) <br> 
+                    Is this person a doctor? ${this.isADoctor} (${typeof this.isADoctor}) <br> 
+                    Method: ${typeof Person}
+                    `;
+                    }
+                }
+    
+                let me = new Person("Carson", 20, "IT Client Support Specialist", false);
+                let randomGuy = new Person("Jacob", 41, "Doctor", true);
+                let randomGirl = new Person("Abby", 29, "Financing Admin", false);
+                individual2.innerHTML = `${me.introduction()}//three line breaks ${randomGuy.introduction()}//three line breaks ${randomGirl.introduction()}//three line breaks`;
+            </code></pre>
+        </details>            
+
+        </li>
+
+        <li>Declare a class that does the same thing as the constructor function above. Make an object from the class. Print out the property values, method code, and method return value of the object.
+
+            <p id="individual3"></p>
+
+            <script>
+                
+
+            </script>
+
+        <details>
+            <summary>Source Code:</summary>
+            <pre><code>
+                let individual3 = document.getElementById("individual3");
+                class Person{
+                    constructor(name, age, jobTitle, isADoctor){
+                        this.name = name;
+                        this.age = age;
+                        this.jobTitle = jobTitle;
+                        this.isADoctor = isADoctor;
+                    }
+                    
+                    introduction(){
+                    return `
+                    Person's name: ${this.name} (${typeof this.name}) <br> 
+                    Person's age: ${this.age} (${typeof this.age}) <br> 
+                    Person's profession: ${this.jobTitle} (${typeof this.jobTitle}) <br> 
+                    Is this person a doctor? ${this.isADoctor} (${typeof this.isADoctor}) <br> 
+                    Method: ${typeof Person}
+                    `;
+                    }
+                }
+    
+                let me = new Person("Carson", 20, "IT Client Support Specialist", false);
+                let randomGuy = new Person("Jacob", 41, "Doctor", true);
+                let randomGirl = new Person("Abby", 29, "Financing Admin", false);
+                individual2.innerHTML = `${me.introduction()}//three line breaks ${randomGuy.introduction()}//three line breaks ${randomGirl.introduction()}//three line breaks`;
+            </code></pre>
+        </details>            
+
+        </li>
+    </ol>
+
 
     <footer>
         <h4><a href="../Button-Encyclopedia/assets-copyable/button-encyclopedia.html">Link to Button encyclopedia</a></h4>

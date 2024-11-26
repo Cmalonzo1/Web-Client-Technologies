@@ -8,3 +8,7 @@ html{
 *, *:before, *:after{
     box-sizing: inherit;
 }
+
+details{
+    padding-bottom: 20px;
+}
