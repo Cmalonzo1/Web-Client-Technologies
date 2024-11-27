@@ -7,20 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Assignment </h1>
+    <h1>Assignment 14</h1>
     <h2>Carson Alonzo | Web Client Applications</h2>
 
     <ol>
         <li>Read up on cookie security and write 125 words or more about the topic.</li>
+        <p>Cookies store information about your visit to a webpage. Things like passwords, settings, and website preferences are stored in cookies. Because of the sensitive information typically stored in cookies, companies employ strict security measures such as:
+            <ul>
+                <li>ensuring the cookies cannot be accessed through the user's client</li>
+                <li>implementing short and reasonable cookie expiration times</li>
+                <li>encrypting user's sensitive information</li>
+            </ul>
+            to ensure the user's data is not compromised.</p>
+            <p>Users, especially privacy conscious ones, have tools in the browser and webpage that allow them to protect their data. They may use incognito mode on their browser to prevent cookies from being stored, or can periodically delete them within their history settings.</p>
+            <p>Cookies are a powerful tool that help enhance the user experience but must be used with caution to protect the user's data and the company's reputation.</p>
         <li>Write code with buttons that: create a cookie with attribute "flavor" and value "chocolate chip" (or whatever your favorite kind is); displays the cookie; and changes the cookie value.
-            <button id="cookieButton">Creates cookie with a random flavor and displays it in the console</button>
-            <p class="storedCookie"></p>
+            <button id="cookieButton" onclick="displayCookie();">Creates cookie with a random flavor and displays it in the console</button><br>
+            <button id="changeCookieButton" onclick="changeCookie()">Change the cookie flavor</button>
             
             <script>
                 let cookieButton = document.getElementById('cookieButton');
                 let storedCookie = document.getElementById('storedCookie');
 
-                let cookieFlavors = [
+                function displayCookie(){
+                    let cookie = document.cookie;
+                    alert(cookie ? "Cookie: " + cookie : "No cookie found");
+                }
+
+                function createCookie(){
+                    document.cookie = "flavor=chocolate chip; path=/";
+                    displayCookie();
+                }
+                
+                function changeCookie(){
+                    let cookieFlavors = [
                     "Chocolate Chip",
                     "Oatmeal Raisin",
                     "Sugar",
@@ -30,21 +50,16 @@
                     "Gingerbread",
                     "M&M",
                     "Macadamia Nut",
-                    "Lemon Drop"
+                    "Lemon Drop",
+                    "Chocolate",
+                    "Oreo"
                     ];
 
                     let cookieFlavor = Math.floor(Math.random() * cookieFlavors.length);
 
                     let chosenCookieFlavor = cookieFlavors[cookieFlavor];
 
-                function createCookie(){
                     document.cookie = "flavor=" + chosenCookieFlavor;
-                    return document.cookie;
-                }                
-
-                function getCookie(){
-                    let cookie = createCookie();
-                    console.log(cookie);
                 }
                 
             </script>
@@ -52,20 +67,103 @@
                 <summary>Source Code:</summary>
                 <pre>
                     <code>
-
+                        let cookieButton = document.getElementById('cookieButton');
+                        let storedCookie = document.getElementById('storedCookie');
+        
+                        function displayCookie(){
+                            let cookie = document.cookie;
+                            alert(cookie ? "Cookie: " + cookie : "No cookie found");
+                        }
+        
+                        function createCookie(){
+                            document.cookie = "flavor=chocolate chip; path=/";
+                            displayCookie();
+                        }
+                        
+                        function changeCookie(){
+                            let cookieFlavors = [
+                            "Chocolate Chip",
+                            "Oatmeal Raisin",
+                            "Sugar",
+                            "Snickerdoodle",
+                            "Peanut Butter",
+                            "Double Chocolate",
+                            "Gingerbread",
+                            "M&M",
+                            "Macadamia Nut",
+                            "Lemon Drop",
+                            "Chocolate",
+                            "Oreo"
+                            ];
+        
+                            let cookieFlavor = Math.floor(Math.random() * cookieFlavors.length);
+        
+                            let chosenCookieFlavor = cookieFlavors[cookieFlavor];
+        
+                            document.cookie = "flavor=" + chosenCookieFlavor;
                     </code>
                 </pre>
             </details>
         </li>
-        <li>Add one(1) more button demonstrating an example of regular expressions using the "*" and "+" regular expression operators.</li>
-        <li>
+        <li>Add one(1) more button demonstrating an example of regular expressions using the "*" and "+" regular expression operators.
+            <p id="peter">String for reference: Peter Piper picked a peck of pickled peppers, A peck of pickled peppers Peter Piper picked; If Peter Piper picked a peck of pickled peppers, Where's the peck of pickled peppers Peter Piper picked?</p>
             <ol type="a">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                    <button onclick="ExpressionPlusOperator()">Example of ExpressionPlusOperator (Check if there's a p followed by 1 or more e's)</button>
+                    <p id="plusExample"></p>
+                </li>
+                <li>
+                    <button onclick="ExpressionAsteriskOperator()">Example of ExpressionAsteriskOperator (Check if there's a p followed by 0 or more i's)</button>
+                    <p id="asteriskExample"></p>
+                </li>
+                <script>
+                    let string = "Peter Piper picked a peck of pickled peppers, A peck of pickled peppers Peter Piper picked; If Peter Piper picked a peck of pickled peppers, Where's the peck of pickled peppers Peter Piper picked?";
+
+                    function ExpressionPlusOperator(){
+                        
+                        let plusExample = document.getElementById('plusExample');
+                        let matchPlus = /p+e/g;
+
+                        let plusMatches = string.match(matchPlus);
+
+                        plusExample.innerHTML = `+ Matches: ${[plusMatches]}`;
+                    }
+
+                    function ExpressionAsteriskOperator(){
+                        
+                        let asteriskExample = document.getElementById('asteriskExample');
+                        let matchStar = /p*i/g;
+
+                        let asteriskMatches = string.match(matchStar);
+                        asteriskExample.innerHTML = `* Matches: ${[asteriskMatches]}`;
+                        }
+                </script>
             </ol>
+            <details>
+                <summary>Source Code:</summary>
+                <pre><code>
+                    let string = "Peter Piper picked a peck of pickled peppers, A peck of pickled peppers Peter Piper picked; If Peter Piper picked a peck of pickled peppers, Where's the peck of pickled peppers Peter Piper picked?";
+
+                    function ExpressionPlusOperator(){
+                        
+                        let plusExample = document.getElementById('plusExample');
+                        let matchPlus = /p+e/g;
+
+                        let plusMatches = string.match(matchPlus);
+
+                        plusExample.innerHTML = `+ Matches: ${[plusMatches]}`;
+                    }
+
+                    function ExpressionAsteriskOperator(){
+                        
+                        let asteriskExample = document.getElementById('asteriskExample');
+                        let matchStar = /p*i/g;
+
+                        let asteriskMatches = string.match(matchStar);
+                        asteriskExample.innerHTML = `* Matches: ${[asteriskMatches]}`;
+                        }
+                </code></pre>
+            </details>
         </li>
     </ol>
 

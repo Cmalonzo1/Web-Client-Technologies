@@ -8,3 +8,7 @@ html{
 *, *:before, *:after{
     box-sizing: inherit;
 }
+
+summary{
+    padding-bottom: 10px;
+}
