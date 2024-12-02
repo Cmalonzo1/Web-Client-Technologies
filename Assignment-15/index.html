@@ -129,42 +129,7 @@
 
         <li>Declare a class that does the same thing as the constructor function above. Make an object from the class. Print out the property values, method code, and method return value of the object.
 
-            <p id="individual3"></p>
-
-            <script>
-                
-
-            </script>
-
-        <details>
-            <summary>Source Code:</summary>
-            <pre><code>
-                let individual3 = document.getElementById("individual3");
-                class Person{
-                    constructor(name, age, jobTitle, isADoctor){
-                        this.name = name;
-                        this.age = age;
-                        this.jobTitle = jobTitle;
-                        this.isADoctor = isADoctor;
-                    }
-                    
-                    introduction(){
-                    return `
-                    Person's name: ${this.name} (${typeof this.name}) <br> 
-                    Person's age: ${this.age} (${typeof this.age}) <br> 
-                    Person's profession: ${this.jobTitle} (${typeof this.jobTitle}) <br> 
-                    Is this person a doctor? ${this.isADoctor} (${typeof this.isADoctor}) <br> 
-                    Method: ${typeof Person}
-                    `;
-                    }
-                }
-    
-                let me = new Person("Carson", 20, "IT Client Support Specialist", false);
-                let randomGuy = new Person("Jacob", 41, "Doctor", true);
-                let randomGirl = new Person("Abby", 29, "Financing Admin", false);
-                individual2.innerHTML = `${me.introduction()}//three line breaks ${randomGuy.introduction()}//three line breaks ${randomGirl.introduction()}//three line breaks`;
-            </code></pre>
-        </details>            
+            <p>The code above does the same thing as this part of the assignment</p>
 
         </li>
     </ol>
